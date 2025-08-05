@@ -1,0 +1,16 @@
+# .gitignore
+__pycache__/
+*.pyc
+*.log
+*.db
+*.sqlite3
+.vscode/
+.idea/
+.env
+.env.*
+data/
+configs/config.yaml
+*.pt
+*.ckpt
+*.bin
+faiss_index.*

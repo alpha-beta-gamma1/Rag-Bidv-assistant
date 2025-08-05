@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  rag-app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ./data:/app/data
+      - ./configs:/app/configs
+      - ./logs:/app/logs
+    env_file:
+      - .env

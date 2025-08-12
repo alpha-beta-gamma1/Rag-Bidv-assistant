@@ -74,22 +74,7 @@ class TextSplitter:
             "columns": rows[0] if rows else [],
             "rows": rows[1:] if len(rows) > 1 else []
         }
-
-    # def split_document(self, document: Dict[str, Any]) -> List[Dict[str, Any]]:
-    #     """Split document into chunks based on document type"""
-    #     file_path = document.get('file_path', '')
-    #     content = document.get('content', '')
-    #     metadata = document.get('metadata', {})
-        
-    #     file_extension = Path(file_path).suffix.lower()
-        
-    #     if file_extension == '.docx':
-    #         return self._split_docx_document(file_path, metadata)
-    #     elif file_extension == '.json':
-    #         return self._split_json_document(content, metadata)
-    #     else:
-    #         # Default text splitting
-    #         return self._split_text_document(content, metadata)
+    
     def split_document(self, document: Dict[str, Any]) -> List[Dict[str, Any]]:
         file_path = document.get('file_path', '')
         metadata = document.get('metadata', {})

@@ -1,5 +1,6 @@
 import os
 import json
+from pdb import main
 from typing import Dict, Any
 from pathlib import Path
 from docx import Document
@@ -36,6 +37,14 @@ class DocumentLoader:
         except Exception as e:
             logger.error(f"Error loading {file_path}: {e}")
             raise
+        return {
+            "content": "",
+            "metadata": {
+                "file_path": file_path,
+                "file_type": file_ext,
+                "error": "No loader matched the file extension"
+            }
+        }
     
     def _load_docx(self, file_path: str) -> Dict[str, Any]:
         """Load DOCX file"""

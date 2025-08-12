@@ -1,85 +1,78 @@
-import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
-from typing import List, Dict, Any
+import os
 import time
-from src.utils.config import Config
+from typing import List, Dict, Any, Union, Optional
+from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
+from openai import OpenAI
+from dotenv import load_dotenv
 from src.utils.logger import setup_logger
 
 logger = setup_logger(__name__)
 
-class LLMClient:
-    def __init__(self, config: Config):
-        """Khởi tạo LLMClient với cấu hình từ config."""
-        self.model_name = config.get('models.llm_model', 'Qwen/Qwen2.5-1.5B-Instruct')
-        self.device = 'cuda' if torch.cuda.is_available() and config.get('models.device', 'cpu') == 'cuda' else 'cpu'
-        self.max_new_tokens = config.get('generation.max_new_tokens', 512)
-        self.temperature = config.get('generation.temperature', 0.7)
-        self.do_sample = config.get('generation.do_sample', True)
-        
-        logger.info(f"Khởi tạo LLMClient với mô hình: {self.model_name}, thiết bị: {self.device}")
-        
+class GeminiLLMClient:
+    """OpenAI-compatible client for Google AI Studio (Gemini).
+    - Reads GEMINI_API_KEY + GEMINI_BASE_URL from env (with sane defaults)
+    - Accepts either a prompt string OR OpenAI-style messages
+    - Optional streaming (config: generation.stream)
+    - Retries on transient HTTP/RateLimit errors
+    """
+    def __init__(self, config):
+        load_dotenv()
+        api_key = os.getenv("GEMINI_API_KEY") or config.get("providers.gemini.api_key")
+        base_url = os.getenv("GEMINI_BASE_URL")
+        if not api_key:
+            raise RuntimeError("Thiếu GEMINI_API_KEY")
+
+        # Model & generation params
+        self.model_name = config.get("models.llm_model", "gemini-2.5-flash")
+        self.max_tokens = int(config.get("generation.max_new_tokens", 512))  # normalize name
+        self.temperature = float(config.get("generation.temperature", 0.4))
+        self.top_p = float(config.get("generation.top_p", 0.9))
+        self.stream = bool(config.get("generation.stream", False))
+        self.timeout = int(config.get("generation.timeout_sec", 60))
+
+        t0 = time.time()
+        self.client = OpenAI(api_key=api_key, base_url=base_url, timeout=self.timeout)
+        logger.info(f"Gemini client ready in {time.time()-t0:.2f}s | model={self.model_name}")
+
+    @retry(
+        reraise=True,
+        stop=stop_after_attempt(3),
+        wait=wait_exponential(multiplier=1.0, min=1, max=8),
+        retry=retry_if_exception_type(Exception),
+    )
+    def _call_completion(self, messages: List[Dict[str, str]]):
+        return self.client.chat.completions.create(
+            model=self.model_name,
+            messages=messages,
+            temperature=self.temperature,
+            top_p=self.top_p,
+            max_tokens=self.max_tokens,
+            stream=self.stream,
+        )
+
+    def generate(self, prompt_or_messages: Union[str, List[Dict[str, str]]], language: str = "vi") -> str:
+        fallback = (
+            "Xin lỗi, tôi không thể tạo câu trả lời cho câu hỏi này." if language == "vi"
+            else "Sorry, I couldn't generate a response for this query."
+        )
         try:
-            # Ghi lại thời gian tải mô hình
-            start_time = time.time()
-            
-            # Load tokenizer
-            self.tokenizer = AutoTokenizer.from_pretrained(
-                self.model_name,
-                trust_remote_code=True
-            )
-            
-            # Đảm bảo pad_token_id hợp lệ
-            if self.tokenizer.pad_token_id is None:
-                self.tokenizer.pad_token_id = self.tokenizer.eos_token_id
-                logger.info("Đã gán pad_token_id từ eos_token_id")
-            
-            # Load mô hình
-            self.model = AutoModelForCausalLM.from_pretrained(
-                self.model_name,
-                torch_dtype=torch.float16 if self.device == 'cuda' else torch.float32,
-                device_map='auto' if self.device == 'cuda' else None,
-                trust_remote_code=True
-            )
-            
-            # Chuyển mô hình sang chế độ đánh giá
-            self.model.eval()
-            
-            # Tạo pipeline
-            self.pipeline = pipeline(
-                "text-generation",
-                model=self.model,
-                tokenizer=self.tokenizer,
-                device=0 if self.device == 'cuda' else -1
-            )
-            
-            logger.info(f"Tải mô hình thành công trong {time.time() - start_time:.2f} giây")
-        
-        except (RuntimeError, ValueError) as e:
-            logger.error(f"Lỗi khi tải mô hình: {e}")
-            raise
-    
-    def generate(self, prompt: str, language: str = 'vi') -> str:
-        """Tạo phản hồi từ prompt với hỗ trợ đa ngôn ngữ cho thông báo lỗi."""
-        error_msgs = {
-            'vi': "Xin lỗi, tôi không thể tạo câu trả lời cho câu hỏi này.",
-            'en': "Sorry, I couldn't generate a response for this query."
-        }
-        
-        try:
-            with torch.no_grad():  # Tối ưu bộ nhớ
-                outputs = self.pipeline(
-                    prompt,
-                    max_new_tokens=self.max_new_tokens,
-                    temperature=self.temperature,
-                    do_sample=self.do_sample,
-                    pad_token_id=self.tokenizer.pad_token_id,
-                    return_full_text=False
-                )
-                
-                response = outputs[0]['generated_text'].strip()
-                logger.info(f"Đã tạo phản hồi cho prompt dài {len(prompt)} ký tự")
-                return response
-                
-        except (RuntimeError, ValueError) as e:
-            logger.error(f"Lỗi khi tạo phản hồi: {e}")
-            return error_msgs.get(language, error_msgs['vi'])
+            if isinstance(prompt_or_messages, str):
+                messages = [{"role": "user", "content": prompt_or_messages}]
+            else:
+                messages = prompt_or_messages
+
+            resp = self._call_completion(messages)
+
+            if self.stream:
+                # Collect streamed chunks into a single string
+                full_text = []
+                for chunk in resp:  # type: ignore[union-attr]
+                    delta = getattr(chunk.choices[0].delta, "content", None)
+                    if delta:
+                        full_text.append(delta)
+                return ("".join(full_text)).strip() or fallback
+
+            return (resp.choices[0].message.content or "").strip() or fallback
+        except Exception as e:
+            logger.error(f"Lỗi gọi Gemini: {e}")
+            return fallback

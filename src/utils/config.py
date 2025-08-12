@@ -25,7 +25,7 @@ class Config:
         return {
             'models': {
                 'embedding_model': 'bkai-foundation-models/vietnamese-bi-encoder',
-                'llm_model': 'Qwen/Qwen2.5-1.5B-Instruct',
+                'llm_model': 'gemini-2.5-flash',
                 'device': 'cuda' if os.getenv('CUDA_AVAILABLE', 'false').lower() == 'true' else 'cpu'
             },
             'chunking': {
@@ -34,7 +34,7 @@ class Config:
             },
             'retrieval': {
                 'top_k': 3,
-                'score_threshold': 0.6
+                'score_threshold': 0.4
             },
             'vector_store': {
                 'type': 'faiss',

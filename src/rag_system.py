@@ -2,7 +2,6 @@ import os
 import json
 from typing import List, Dict, Any
 from pathlib import Path
-
 from src.utils.config import Config
 from src.utils.logger import setup_logger
 from src.ingestion.document_loader import DocumentLoader
@@ -83,9 +82,20 @@ class RAGSystem:
     def query(self, question: str) -> Dict[str, Any]:
         logger.info(f"Processing query: {question}")
         contexts = self.retriever.retrieve(question)
-        result = self.response_generator.generate_response(question, contexts)
-        logger.info("Query processed successfully")
-        return result
+        contents = [
+            self.embedder._format_table_content(ctx) if ctx.get("type") == "table"
+            else (ctx.get("content") or ctx.get("text", ""))
+            for ctx in contexts
+        ]
+
+        response = self.response_generator.generate_response(question, contents)
+        
+        return {
+            "question": question,
+            "response": response["response"],
+            "contexts": contents  # thêm dòng này để debug context
+        }
+
     
     def _save_chunks(self, chunks: List[Dict[str, Any]], file_path: str):
         """Save processed chunks to JSON file"""

@@ -50,7 +50,7 @@ class Embedder:
             lines.append(f"Các cột: {', '.join(columns)}")
         if rows:
             lines.append("Dữ liệu:")
-            for row in rows:  # Limit to 10 rows for embedding
+            for row in rows:  # Assuming row is a list or dict
                 if isinstance(row, list):
                     lines.append(" | ".join(str(cell) for cell in row))
                 elif isinstance(row, dict):
@@ -124,37 +124,3 @@ class Embedder:
                 logger.warning(f"Skipping empty chunk {i}: {chunk}")
         
         return valid_chunks
-
-# if __name__ == "__main__":
-#     # Load config
-#     config = Config()
-#     embedder = Embedder(config)
-
-#     # Load input file
-#     input_path = "D:\\rag-project\\data\\processed\\chunks\\bidv_chunks.json"
-#     try:
-#         with open(input_path, "r", encoding="utf-8") as f:
-#             raw_chunks = json.load(f)
-#     except Exception as e:
-#         logger.error(f"❌ Error reading '{input_path}': {e}")
-#         exit(1)
-
-#     # Validate chunks
-#     try:
-#         chunks = embedder.validate_chunks(raw_chunks)
-#         logger.info(f"✅ Successfully validated {len(chunks)} chunks")
-#     except ValueError as e:
-#         logger.error(f"❌ Invalid format: {e}")
-#         exit(1)
-
-#     # Run embedding
-#     enriched_chunks = embedder.embed_chunks(chunks)
-
-#     # Save output
-#     output_path = "bidv_with_embeddings.json"
-#     try:
-#         with open(output_path, "w", encoding="utf-8") as f:
-#             json.dump(enriched_chunks, f, ensure_ascii=False, indent=2)
-#         logger.info(f"✅ Embedded {len(enriched_chunks)} chunks and saved to '{output_path}'")
-#     except Exception as e:
-#         logger.error(f"❌ Error saving to '{output_path}': {e}")

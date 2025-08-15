@@ -89,7 +89,7 @@ class RAGSystem:
         ]
 
         response = self.response_generator.generate_response(question, contents)
-        
+
         return {
             "question": question,
             "response": response["response"],

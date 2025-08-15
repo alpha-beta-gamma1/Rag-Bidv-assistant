@@ -1,43 +1,41 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException
-from typing import List
 from fastapi.middleware.cors import CORSMiddleware
+from typing import List
+import os
+
 from src.rag_system import RAGSystem
 
 app = FastAPI(title="RAG API")
+
+# CORS: chỉnh whitelist khi deploy
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # hoặc whitelist domain React
+    allow_origins=["*"],     # TODO: thay bằng ["http://localhost:5173", "..."] khi cần
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+# Khởi tạo 1 lần để tránh load model nhiều lần
 rag = RAGSystem("configs/config.yaml")
 
 @app.get("/health")
 def health():
     return {"status": "ok"}
 
-@app.post("/ingest")
-async def ingest(files: List[UploadFile] = File(...)):
-    try:
-        paths = []
-        for f in files:
-            p = f"/tmp/{f.filename}"
-            with open(p, "wb") as out:
-                out.write(await f.read())
-            paths.append(p)
-        return rag.ingest_multiple_documents(paths)
-    except Exception as e:
-        raise HTTPException(500, str(e))
-
 @app.post("/query")
 async def query(body: dict):
-    q = body.get("question")
+    q = (body or {}).get("question")
     if not q:
-        raise HTTPException(400, "Missing question")
-    return rag.query(q)
-
-@app.get("/stats")
-def stats():
-    return rag.get_system_stats()
+        raise HTTPException(400, "Missing 'question' in body")
+    try:
+        result = rag.query(q)  # kỳ vọng có keys: response, contexts, ...
+        return {
+            "status": "success",
+            "query": q,
+            "response": result.get("response"),
+            "contexts": result.get("contexts", []),
+            "meta": {k: v for k, v in result.items() if k not in ["response", "contexts"]},
+        }
+    except Exception as e:
+        raise HTTPException(500, f"Query error: {e}")

@@ -8,9 +8,8 @@ __pycache__/
 .idea/
 .env
 .env.*
-data/
 configs/config.yaml
 *.pt
 *.ckpt
 *.bin
-faiss_index.*
+

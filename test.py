@@ -6,4 +6,4 @@ while   True:
     if input_text.lower() == 'exit':
         break
     answers = rag_system.query(input_text)
-    print("Answers:", answers['response'])
+    print("Answers:", answers["response"])

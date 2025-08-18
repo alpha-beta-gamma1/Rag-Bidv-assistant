@@ -7,15 +7,14 @@ logger = setup_logger(__name__)
 
 class PromptTemplate:
     def __init__(self):
-        # System message đầy đủ quy tắc + định dạng
+        # System message đầy đủ quy tắc + định dạng (đã đơn giản hóa theo chương trình mẫu)
         self.system_message = dedent("""\
             Bạn là trợ lý AI của Ngân hàng BIDV.
             CHỈ trả lời dựa trên phần "Thông tin từ tài liệu" do người dùng cung cấp trong mỗi lượt hỏi.
 
             QUY TẮC:
             - Nếu tài liệu không nêu rõ, hãy trả lời: "Tôi không tìm thấy thông tin phù hợp trong tài liệu được cung cấp."
-            - Không thêm kiến thức ngoài tài liệu. Bỏ qua ký hiệu chú thích/đánh số như (16), [1], ¹, ²...
-            - Ưu tiên tính chính xác; nếu có khác biệt giữa chi nhánh/PGD, hãy ghi chú ngắn.
+            - Không thêm kiến thức ngoài tài liệu.
             - Ngôn ngữ: tiếng Việt, chuyên nghiệp, ngắn gọn.
 
             TRƯỜNG HỢP NGOẠI LỆ (không cần tài liệu):
@@ -26,7 +25,6 @@ class PromptTemplate:
             1) Câu trả lời trực tiếp (1–2 câu).
             2) (Nếu cần) Ghi chú ngoại lệ/điều kiện áp dụng.
         """).strip()
-
 
         self.max_chars = 4000
 
@@ -103,30 +101,19 @@ class PromptTemplate:
         """Trả về danh sách messages theo chuẩn chat-completions."""
         query = (query or "").strip()
 
-        # 1) Đường tắt cho chào hỏi -> để LLM chào theo system
+        # 1) Đường tắt cho chào hỏi -> để LLM chào theo system  
         if self._is_greeting(query):
-            user = dedent(f"""\
-                Người dùng gửi lời chào: "{query}"
-                Nhiệm vụ:
-                - Chào lại lịch sự (1 câu, xưng "tôi").
-                - Giới thiệu rất ngắn 1 câu về những gì tôi có thể hỗ trợ (không nêu số liệu/điều kiện nghiệp vụ).
-                - Đưa 2–3 gợi ý câu hỏi mẫu dạng gạch đầu dòng (ví dụ: lãi suất, phí, mở thẻ).
-            """).strip()
+            # Đơn giản hóa theo chương trình mẫu - chỉ gửi query trực tiếp
             return [
                 {"role": "system", "content": self.system_message},
-                {"role": "user", "content": user},
+                {"role": "user", "content": query}
             ]
-
 
         # 2) Acknowledgement ngắn
         if self._is_simple_query(query):
-            user = dedent(f"""\
-                Câu hỏi/Thông điệp: {query}
-                Hãy phản hồi lịch sự, ngắn gọn (1 câu).
-            """).strip()
             return [
                 {"role": "system", "content": self.system_message},
-                {"role": "user", "content": user},
+                {"role": "user", "content": query}
             ]
 
         # 3) Tối ưu context
@@ -145,7 +132,7 @@ class PromptTemplate:
             """).strip()
             return [
                 {"role": "system", "content": self.system_message},
-                {"role": "user", "content": user},
+                {"role": "user", "content": user}
             ]
 
         # 5) Ghép context có cấu trúc
@@ -187,7 +174,7 @@ class PromptTemplate:
 
         return [
             {"role": "system", "content": self.system_message},
-            {"role": "user", "content": user},
+            {"role": "user", "content": user}
         ]
 
     # Backward compatibility (giữ nguyên hành vi cũ)

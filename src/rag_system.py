@@ -21,6 +21,7 @@ class RAGSystem:
         self.text_splitter = TextSplitter(self.config)
         self.embedder = Embedder(self.config)
         self.retriever = Retriever(self.config)
+        logger.debug(f"Config for LLM generation: {self.config.get('generation')}")
         self.response_generator = ResponseGenerator(self.config)
         
         # Try to load existing vector store

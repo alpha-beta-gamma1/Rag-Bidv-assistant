@@ -107,20 +107,18 @@
             overflow: hidden;
         }
         
-        .chat-area {
-            flex: 2;
-            display: flex;
-            flex-direction: column;
-            border-right: 1px solid #e2e8f0;
-        }
-        
         .history-area {
-            flex: 1;
+            width: 280px;
             background: #f8fafc;
-            border-left: 1px solid #e2e8f0;
+            border-right: 1px solid #e2e8f0;
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            transition: width 0.3s ease;
+        }
+        
+        .history-area.collapsed {
+            width: 60px;
         }
         
         .history-header {
@@ -134,93 +132,236 @@
             align-items: center;
         }
         
+        .history-header.collapsed {
+            justify-content: center;
+            padding: 15px 10px;
+        }
+        
         .history-header i {
             color: #009B4D;
         }
         
-        .history-filters {
+        .history-toggle {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .history-toggle.rotated {
+            transform: rotate(180deg);
+        }
+        
+        .history-search {
             padding: 15px 20px;
             background: white;
             border-bottom: 1px solid #e2e8f0;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
         }
         
-        .filter-btn {
-            background: #f1f5f9;
+        .search-input {
+            width: 100%;
+            padding: 8px 12px;
             border: 1px solid #e2e8f0;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            border-radius: 8px;
+            outline: none;
+        }
+        
+        .search-input:focus {
+            border-color: #009B4D;
+            box-shadow: 0 0 0 3px rgba(0, 155, 77, 0.1);
+        }
+        
+        .new-chat-btn {
+            margin: 10px 20px;
+            background: linear-gradient(135deg, #006837 0%, #009B4D 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 15px;
             cursor: pointer;
             transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
         }
         
-        .filter-btn:hover {
-            background: #e2e8f0;
+        .new-chat-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 104, 55, 0.3);
         }
         
-        .filter-btn.active {
-            background: #006837;
-            color: white;
-            border-color: #006837;
+        .new-chat-btn.collapsed {
+            margin: 10px 10px;
+            justify-content: center;
+            padding: 10px;
+        }
+        
+        .history-section {
+            padding: 15px 20px;
+            background: #f1f5f9;
+            font-weight: 600;
+            color: #334155;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .history-section.collapsed {
+            display: none;
         }
         
         .history-list {
             flex: 1;
             overflow-y: auto;
-            padding: 10px;
+            padding: 5px 0;
         }
         
         .history-item {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid transparent;
         }
         
         .history-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            background: #e2e8f0;
         }
         
         .history-item.active {
-            border-color: #009B4D;
-            background: #f0fdf4;
+            background: #e2e8f0;
+            border-left-color: #009B4D;
+        }
+        
+        .history-item.collapsed {
+            justify-content: center;
+            padding: 15px 10px;
+        }
+        
+        .history-icon {
+            color: #64748b;
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+        
+        .history-item-content {
+            flex: 1;
+            overflow: hidden;
         }
         
         .history-title {
             font-weight: 500;
             color: #334155;
-            margin-bottom: 5px;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
+            margin-bottom: 3px;
+            white-space: nowrap;
             overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 0.9rem;
         }
         
         .history-date {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: #64748b;
-            margin-bottom: 8px;
         }
         
-        .history-stats {
+        .history-actions {
+            display: none;
+            gap: 8px;
+            margin-left: 10px;
+        }
+        
+        .history-item:hover .history-actions {
+            display: flex;
+        }
+        
+        .history-actions.collapsed {
+            display: none !important;
+        }
+        
+        .action-btn {
+            background: transparent;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .action-btn:hover {
+            color: #334155;
+            transform: scale(1.1);
+        }
+        
+        .pin-btn.pinned {
+            color: #009B4D;
+        }
+        
+        .chat-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .service-category {
             display: flex;
             gap: 10px;
-            font-size: 0.8rem;
-            color: #64748b;
+            padding: 15px 20px;
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            overflow-x: auto;
+            scrollbar-width: none;
         }
         
-        .history-stat {
+        .service-category::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .category-btn {
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        
+        .category-btn:hover {
+            background: #e2e8f0;
+            transform: translateY(-1px);
+        }
+        
+        .category-btn.active {
+            background: #006837;
+            color: white;
+            border-color: #006837;
+        }
+        
+        .quick-actions {
             display: flex;
-            align-items: center;
-            gap: 3px;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 0 20px 15px;
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .quick-action {
+            background: #f1f5f9;
+            color: #334155;
+            border: 1px solid #e2e8f0;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .quick-action:hover {
+            background: #e2e8f0;
+            transform: translateY(-1px);
         }
         
         .chat-body {
@@ -345,67 +486,6 @@
             transform: none;
             box-shadow: none;
             cursor: not-allowed;
-        }
-        
-        .service-category {
-            display: flex;
-            gap: 10px;
-            padding: 15px 20px;
-            background: white;
-            border-bottom: 1px solid #e2e8f0;
-            overflow-x: auto;
-            scrollbar-width: none;
-        }
-        
-        .service-category::-webkit-scrollbar {
-            display: none;
-        }
-        
-        .category-btn {
-            background: #f1f5f9;
-            border: 1px solid #e2e8f0;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            white-space: nowrap;
-        }
-        
-        .category-btn:hover {
-            background: #e2e8f0;
-            transform: translateY(-1px);
-        }
-        
-        .category-btn.active {
-            background: #006837;
-            color: white;
-            border-color: #006837;
-        }
-        
-        .quick-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            padding: 0 20px 15px;
-            background: white;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        
-        .quick-action {
-            background: #f1f5f9;
-            color: #334155;
-            border: 1px solid #e2e8f0;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .quick-action:hover {
-            background: #e2e8f0;
-            transform: translateY(-1px);
         }
         
         /* Context Box */
@@ -542,20 +622,12 @@
         
         /* Responsive design */
         @media (max-width: 1024px) {
-            .main-content {
-                flex-direction: column;
-            }
-            
             .history-area {
-                border-left: none;
-                border-top: 1px solid #e2e8f0;
-                height: 30vh;
+                width: 240px;
             }
             
-            .chat-container {
-                margin: 10px;
-                border-radius: 15px;
-                height: calc(100vh - 20px);
+            .history-area.collapsed {
+                width: 50px;
             }
         }
         
@@ -578,6 +650,14 @@
                 width: 40px;
                 height: 40px;
             }
+            
+            .history-area {
+                width: 200px;
+            }
+            
+            .history-area.collapsed {
+                width: 40px;
+            }
         }
     </style>
 </head>
@@ -586,7 +666,7 @@
         <!-- Header -->
         <div class="chat-header">
             <div class="avatar">
-                <i class="fas fa-robot text-bidv-green text-xl"></i>
+                <img src="https://vectorseek.com/wp-content/uploads/2023/09/Bidv-Logo-Vector.svg-.png" alt="BIDV Logo" style="width: 90%; height: 90%; object-fit: contain;">
             </div>
             <div>
                 <h2>BIDV Assistant</h2>
@@ -601,6 +681,37 @@
 
         <!-- Main Content Area -->
         <div class="main-content">
+            <!-- History Area -->
+            <div class="history-area" id="historyArea">
+                <div class="history-header" id="historyHeader">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-history"></i>
+                        <span>Lịch sử</span>
+                    </div>
+                    <i class="fas fa-chevron-left history-toggle" id="historyToggle"></i>
+                </div>
+                
+                <div class="history-search">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Tìm kiếm...">
+                </div>
+                
+                <button class="new-chat-btn" id="newChatBtn">
+                    <i class="fas fa-plus"></i> <span class="btn-text">Cuộc trò chuyện mới</span>
+                </button>
+                
+                <div class="history-section" id="todaySection">Hôm nay</div>
+                <div id="todayList" class="history-list"></div>
+                
+                <div class="history-section" id="weekSection">Tuần này</div>
+                <div id="weekList" class="history-list"></div>
+                
+                <div class="history-section" id="monthSection">Tháng này</div>
+                <div id="monthList" class="history-list"></div>
+                
+                <div class="history-section" id="olderSection">Cũ hơn</div>
+                <div id="olderList" class="history-list"></div>
+            </div>
+
             <!-- Chat Area -->
             <div class="chat-area">
                 <!-- Service Categories -->
@@ -643,30 +754,6 @@
                     </button>
                 </div>
             </div>
-
-            <!-- History Area -->
-            <div class="history-area">
-                <div class="history-header">
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <i class="fas fa-history"></i>
-                        <span>Lịch sử trò chuyện</span>
-                    </div>
-                    <button class="header-btn" onclick="refreshHistory()">
-                        <i class="fas fa-sync"></i>
-                    </button>
-                </div>
-                
-                <div class="history-filters">
-                    <button class="filter-btn active" onclick="filterHistory('all')">Tất cả</button>
-                    <button class="filter-btn" onclick="filterHistory('today')">Hôm nay</button>
-                    <button class="filter-btn" onclick="filterHistory('week')">Tuần này</button>
-                    <button class="filter-btn" onclick="filterHistory('month')">Tháng này</button>
-                </div>
-                
-                <div id="historyList" class="history-list">
-                    <!-- History items will be populated here -->
-                </div>
-            </div>
         </div>
     </div>
 
@@ -697,6 +784,7 @@
         let currentContexts = [];
         let currentChatId = null;
         let chatHistory = [];
+        let isHistoryCollapsed = false;
         
         // Quick actions by category
         const quickActions = {
@@ -734,7 +822,21 @@
         const contextBox = document.getElementById('contextBox');
         const contextOverlay = document.getElementById('contextOverlay');
         const contextContent = document.getElementById('contextContent');
-        const historyList = document.getElementById('historyList');
+        const historyArea = document.getElementById('historyArea');
+        const historyHeader = document.getElementById('historyHeader');
+        const historyToggle = document.getElementById('historyToggle');
+        const newChatBtn = document.getElementById('newChatBtn');
+        const searchInput = document.getElementById('searchInput');
+        
+        // History section elements
+        const todayList = document.getElementById('todayList');
+        const weekList = document.getElementById('weekList');
+        const monthList = document.getElementById('monthList');
+        const olderList = document.getElementById('olderList');
+        const todaySection = document.getElementById('todaySection');
+        const weekSection = document.getElementById('weekSection');
+        const monthSection = document.getElementById('monthSection');
+        const olderSection = document.getElementById('olderSection');
         
         // Load saved chats from localStorage
         function loadChats() {
@@ -778,15 +880,18 @@
             
             const newChat = {
                 id: chatId,
-                title: title || `Cuộc trò chuyện mới ${formatDate(now)}`,
+                title: title || 'Cuộc trò chuyện mới',
                 createdAt: now.toISOString(),
                 updatedAt: now.toISOString(),
-                messages: []
+                messages: [],
+                pinned: false
             };
             
             chatHistory.push(newChat);
             currentChatId = chatId;
             saveChats();
+            loadChatMessages(chatId);
+            renderHistory();
             return chatId;
         }
         
@@ -808,6 +913,11 @@
                 timestamp: now.toISOString(),
                 contexts: isUser ? [] : (currentContexts || [])
             };
+            
+            // Auto-generate title from first user message
+            if (isUser && chat.messages.length === 0) {
+                chat.title = content.length > 50 ? content.substring(0, 50) + '...' : content;
+            }
             
             chat.messages.push(message);
             chat.updatedAt = now.toISOString();
@@ -903,59 +1013,129 @@
             return `${Math.floor(diffDays / 365)} năm trước`;
         }
         
-        // Render history list
-        function renderHistory(filter = 'all') {
-            historyList.innerHTML = '';
-            
-            let filteredChats = [...chatHistory];
-            
-            // Apply filters
+        // Group chats by date
+        function groupChatsByDate(chats) {
             const now = new Date();
-            if (filter === 'today') {
-                filteredChats = filteredChats.filter(chat => {
-                    const chatDate = new Date(chat.createdAt);
-                    return chatDate.toDateString() === now.toDateString();
-                });
-            } else if (filter === 'week') {
-                const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-                filteredChats = filteredChats.filter(chat => new Date(chat.createdAt) >= oneWeekAgo);
-            } else if (filter === 'month') {
-                const oneMonthAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
-                filteredChats = filteredChats.filter(chat => new Date(chat.createdAt) >= oneMonthAgo);
-            }
+            const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            const oneWeekAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+            const oneMonthAgo = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);
             
-            // Sort by updated date (newest first)
-            filteredChats.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+            return {
+                today: chats.filter(chat => new Date(chat.updatedAt) >= today),
+                week: chats.filter(chat => new Date(chat.updatedAt) >= oneWeekAgo && new Date(chat.updatedAt) < today),
+                month: chats.filter(chat => new Date(chat.updatedAt) >= oneMonthAgo && new Date(chat.updatedAt) < oneWeekAgo),
+                older: chats.filter(chat => new Date(chat.updatedAt) < oneMonthAgo)
+            };
+        }
+        
+        // Render history list
+        function renderHistory() {
+            // Clear all lists
+            todayList.innerHTML = '';
+            weekList.innerHTML = '';
+            monthList.innerHTML = '';
+            olderList.innerHTML = '';
             
-            if (filteredChats.length === 0) {
-                historyList.innerHTML = `
-                    <div class="text-center text-gray-500 p-4">
-                        <i class="fas fa-inbox" style="font-size: 2rem; margin-bottom: 10px; opacity: 0.5;"></i>
-                        <div>Chưa có cuộc trò chuyện nào</div>
-                    </div>
-                `;
-                return;
-            }
+            // Sort chats by updated date (newest first)
+            const sortedChats = [...chatHistory].sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
             
-            filteredChats.forEach(chat => {
-                const div = document.createElement('div');
-                div.className = `history-item ${chat.id === currentChatId ? 'active' : ''}`;
-                div.onclick = () => loadChat(chat.id);
+            // Filter by search if needed
+            const searchTerm = searchInput.value.trim().toLowerCase();
+            const filteredChats = searchTerm ? sortedChats.filter(chat => 
+                chat.title.toLowerCase().includes(searchTerm) ||
+                chat.messages.some(msg => msg.content.toLowerCase().includes(searchTerm))
+            ) : sortedChats;
+            
+            // Group chats by date
+            const groupedChats = groupChatsByDate(filteredChats);
+            
+            // Render pinned chats first, then others
+            Object.keys(groupedChats).forEach(group => {
+                const groupList = document.getElementById(`${group}List`);
+                const groupSection = document.getElementById(`${group}Section`);
                 
-                const firstMessage = chat.messages.length > 0 ? chat.messages[0].content : 'Cuộc trò chuyện trống';
-                const truncatedTitle = firstMessage.length > 50 ? firstMessage.substring(0, 50) + '...' : firstMessage;
+                // Clear the list
+                groupList.innerHTML = '';
                 
-                div.innerHTML = `
+                // Get chats for this group
+                let groupChats = groupedChats[group];
+                
+                // Show/hide section based on whether there are chats
+                if (groupChats.length > 0) {
+                    groupSection.style.display = 'flex';
+                    
+                    // Sort: pinned first, then by date
+                    groupChats.sort((a, b) => {
+                        if (a.pinned && !b.pinned) return -1;
+                        if (!a.pinned && b.pinned) return 1;
+                        return new Date(b.updatedAt) - new Date(a.updatedAt);
+                    });
+                    
+                    // Add chats to the list
+                    groupChats.forEach(chat => {
+                        const div = createHistoryItem(chat);
+                        groupList.appendChild(div);
+                    });
+                } else {
+                    groupSection.style.display = isHistoryCollapsed ? 'none' : 'flex';
+                }
+            });
+            
+            // Update collapsed state
+            updateCollapsedState();
+        }
+        
+        // Create a history item element
+        function createHistoryItem(chat) {
+            const div = document.createElement('div');
+            div.className = `history-item ${chat.id === currentChatId ? 'active' : ''}`;
+            div.dataset.chatId = chat.id;
+            div.onclick = () => loadChat(chat.id);
+            
+            const lastMessage = chat.messages.length > 0 ? chat.messages[chat.messages.length - 1] : null;
+            const lastUpdate = lastMessage ? new Date(lastMessage.timestamp) : new Date(chat.createdAt);
+            
+            div.innerHTML = `
+                <div class="history-icon">
+                    <i class="fas fa-comment"></i>
+                </div>
+                <div class="history-item-content">
                     <div class="history-title">${chat.title}</div>
-                    <div class="history-date">${formatRelativeDate(chat.updatedAt)} • ${formatDate(chat.updatedAt)}</div>
-                    <div class="history-stats">
-                        <span class="history-stat">
-                            <i class="fas fa-comments"></i> ${chat.messages.length}
-                        </span>
-                    </div>
-                `;
-                
-                historyList.appendChild(div);
+                    <div class="history-date">${formatDate(lastUpdate)}, ${formatTime(lastUpdate)}</div>
+                </div>
+                <div class="history-actions">
+                    <button class="action-btn rename-btn" onclick="event.stopPropagation(); renameChat('${chat.id}')">
+                        <i class="fas fa-pen"></i>
+                    </button>
+                    <button class="action-btn pin-btn ${chat.pinned ? 'pinned' : ''}" onclick="event.stopPropagation(); togglePin('${chat.id}')">
+                        <i class="fas fa-thumbtack"></i>
+                    </button>
+                    <button class="action-btn delete-btn" onclick="event.stopPropagation(); deleteChat('${chat.id}')">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `;
+            
+            return div;
+        }
+        
+        // Toggle history sidebar
+        function toggleHistory() {
+            isHistoryCollapsed = !isHistoryCollapsed;
+            historyArea.classList.toggle('collapsed', isHistoryCollapsed);
+            historyHeader.classList.toggle('collapsed', isHistoryCollapsed);
+            historyToggle.classList.toggle('rotated', isHistoryCollapsed);
+            newChatBtn.classList.toggle('collapsed', isHistoryCollapsed);
+            
+            // Update all sections and actions
+            updateCollapsedState();
+        }
+        
+        // Update collapsed state
+        function updateCollapsedState() {
+            const elements = document.querySelectorAll('.history-section, .history-actions, .btn-text');
+            elements.forEach(el => {
+                el.classList.toggle('collapsed', isHistoryCollapsed);
             });
         }
         
@@ -971,15 +1151,50 @@
             renderHistory();
         }
         
-        // Filter history
-        function filterHistory(filter) {
-            // Update active state
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
+        // Rename chat
+        function renameChat(chatId) {
+            const chat = chatHistory.find(c => c.id === chatId);
+            if (!chat) return;
             
-            renderHistory(filter);
+            const newName = prompt('Đổi tên cuộc trò chuyện:', chat.title);
+            if (newName && newName.trim() !== '') {
+                chat.title = newName.trim();
+                chat.updatedAt = new Date().toISOString();
+                saveChats();
+                renderHistory();
+            }
+        }
+        
+        // Delete chat
+        function deleteChat(chatId) {
+            if (confirm('Bạn có chắc chắn muốn xóa cuộc trò chuyện này?')) {
+                chatHistory = chatHistory.filter(chat => chat.id !== chatId);
+                
+                // If deleted chat was current, load a different one
+                if (currentChatId === chatId) {
+                    if (chatHistory.length > 0) {
+                        currentChatId = chatHistory[0].id;
+                        loadChatMessages(currentChatId);
+                    } else {
+                        createNewChat();
+                        loadChatMessages(currentChatId);
+                    }
+                }
+                
+                saveChats();
+                renderHistory();
+            }
+        }
+        
+        // Toggle pin status
+        function togglePin(chatId) {
+            const chat = chatHistory.find(c => c.id === chatId);
+            if (chat) {
+                chat.pinned = !chat.pinned;
+                chat.updatedAt = new Date().toISOString();
+                saveChats();
+                renderHistory();
+            }
         }
         
         // Initialize quick actions
@@ -1179,6 +1394,11 @@
             
             // Load saved chats
             loadChats();
+            
+            // Set up event listeners
+            historyToggle.addEventListener('click', toggleHistory);
+            newChatBtn.addEventListener('click', () => createNewChat());
+            searchInput.addEventListener('input', renderHistory);
         }
         
         // Focus input on load

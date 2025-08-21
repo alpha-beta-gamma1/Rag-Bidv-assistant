@@ -6,7 +6,6 @@ from typing import List, Dict, Any, Union
 from openai import OpenAI
 from dotenv import load_dotenv
 from src.utils.logger import setup_logger
-from openai.types.chat import ChatCompletion
 
 logger = setup_logger(__name__)
 

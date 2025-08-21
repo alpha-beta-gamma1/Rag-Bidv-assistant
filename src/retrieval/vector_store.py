@@ -42,7 +42,7 @@ class VectorStore:
         
         logger.info(f"Added {len(chunks)} chunks to vector store. Total: {len(self.chunks)}")
     
-    def search(self, query_embedding: np.ndarray, top_k: int = 3) -> List[Tuple[Dict[str, Any], float]]:
+    def search(self, query_embedding: np.ndarray, top_k: int = 2) -> List[Tuple[Dict[str, Any], float]]:
         """Search for similar chunks"""
         if self.index.ntotal == 0:
             return []

@@ -7,28 +7,29 @@ logger = setup_logger(__name__)
 
 class PromptTemplate:
     def __init__(self):
-        # System message đầy đủ quy tắc + định dạng (đã đơn giản hóa theo chương trình mẫu)
-        self.system_message = dedent("""\
-            Bạn là trợ lý AI của Ngân hàng BIDV.
-            CHỈ trả lời dựa trên phần "Thông tin từ tài liệu" do người dùng cung cấp trong mỗi lượt hỏi.
+        # Enhanced system message với better instructions
+        self.system_message = dedent("""
+            Bạn là Trợ lý AI chuyên nghiệp của Ngân hàng BIDV.
 
-            QUY TẮC:
-            - Nếu tài liệu không nêu rõ, hãy trả lời: "Tôi không tìm thấy thông tin phù hợp trong tài liệu được cung cấp."
-            - Không thêm kiến thức ngoài tài liệu.
-            - Ngôn ngữ: tiếng Việt, chuyên nghiệp, ngắn gọn.
+            ## NGUYÊN TẮC GIAO TIẾP
 
-            TRƯỜNG HỢP NGOẠI LỆ (không cần tài liệu):
-            - Nếu người dùng chỉ CHÀO HỎI/CẢM ƠN/XÁC NHẬN ngắn (ví dụ: "hi", "xin chào", "ok", "cảm ơn"),
-            hãy chào lại lịch sự và gợi ý 2–3 chủ đề có thể hỗ trợ. Không đưa số liệu/điều kiện nghiệp vụ.
+            - xưng hô bằng “quý khách hàng” đối với user.
+            - Ngôn ngữ: Tiếng Việt, chuyên nghiệp, ngắn gọn, trung lập.
 
-            ĐỊNH DẠNG:
-            1) Câu trả lời trực tiếp (1–2 câu).
-            2) (Nếu cần) Ghi chú ngoại lệ/điều kiện áp dụng.
-        """).strip()
+            ## PHẠM VI THÔNG TIN
+            - Chỉ trả lời dựa trên TÀI LIỆU được cung cấp.
+            - Không suy đoán, không dùng nguồn ngoài.
+            - Nếu TÀI LIỆU không có đủ dữ liệu: chỉ trả lời  
+            → “Quý khách vui lòng liên hệ chi nhánh để được tư vấn chi tiết.”
+
+            ## QUY TẮC NỘI DUNG
+            - Trả lời đúng trọng tâm câu hỏi.
+            """).strip()
+
 
         self.max_chars = 4000
 
-        # Mẫu chào hỏi / acknowledgement
+        # Patterns cho greeting detection
         self.greeting_patterns = [
             re.compile(r"^(chào|xin chào|hello|hi|hê lô)\b", re.IGNORECASE),
             re.compile(r"^(tôi cần hỗ trợ|cần giúp đỡ|giúp tôi|hỗ trợ)\b", re.IGNORECASE),
@@ -42,10 +43,9 @@ class PromptTemplate:
             re.compile(r"\btạm biệt\b|\bbye\b", re.IGNORECASE),
         ]
 
-        # Stopwords rất gọn để dedup (đủ dùng cho kiểm trùng đơn giản)
+        # Stopwords cho deduplication
         self._stop = set("và hoặc là của các những được từ cho với tại trên dưới trong khi nếu hoặc hay một số".split())
 
-    # ---------- Helpers ----------
     def _is_greeting(self, query: str) -> bool:
         q = (query or "").strip().lower()
         return any(pat.match(q) for pat in self.greeting_patterns)
@@ -54,133 +54,174 @@ class PromptTemplate:
         q = (query or "").strip().lower()
         return any(pat.search(q) for pat in self.simple_patterns)
 
-    def _clean_context(self, text: str) -> str:
-        """Làm sạch: bỏ [1], (16), ký hiệu chú thích rời rạc; gộp khoảng trắng."""
+    def _enhanced_clean_context(self, text: str) -> str:
+        """Enhanced context cleaning."""
         if not text:
             return ""
+        
         t = text
-
-        # Bỏ [n] và (n)
+        
+        # Remove citations
         t = re.sub(r"\[\s*\d+\s*\]", " ", t)
         t = re.sub(r"\(\s*\d+\s*\)", " ", t)
-
-        # Bỏ số chú thích lẻ đứng độc lập sau dấu cách/dấu câu (hạn chế đụng năm như 2024)
+        
+        # Remove standalone reference numbers (careful with years)
         t = re.sub(r"(?:(?<=\s)|(?<=\.|,|;|:))\d{1,2}(?=\s|$)", " ", t)
-
-        # Gộp khoảng trắng
-        t = re.sub(r"\s+", " ", t).strip()
-        return t
+        
+        # Better space normalization
+        t = re.sub(r"[ \t]+", " ", t)
+        t = re.sub(r"\s+([,.;:%\)\?])", r"\1", t)
+        t = re.sub(r"(\()\s+", r"\1", t)
+        
+        # Better line break handling
+        t = re.sub(r"\n{3,}", "\n\n", t)
+        t = "\n".join(ln.rstrip() for ln in t.splitlines())
+        
+        return t.strip()
 
     def _tokenize(self, s: str) -> List[str]:
         return [w for w in re.findall(r"\w+", s.lower()) if w not in self._stop]
 
-    def _similar(self, a: str, b: str) -> float:
+    def _similarity_score(self, a: str, b: str) -> float:
+        """Improved similarity calculation."""
         ta, tb = set(self._tokenize(a)), set(self._tokenize(b))
         if not ta or not tb:
             return 0.0
-        return len(ta & tb) / len(ta | tb)
+        
+        intersection = len(ta & tb)
+        union = len(ta | tb)
+        
+        # Jaccard + length penalty cho contexts quá khác biệt về độ dài
+        jaccard = intersection / union
+        len_ratio = min(len(ta), len(tb)) / max(len(ta), len(tb))
+        
+        return jaccard * (0.7 + 0.3 * len_ratio)  # Weight by length similarity
 
     def _optimize_context(self, contexts: List[str]) -> List[str]:
-        """Làm sạch + khử trùng lặp đơn giản (giữ thứ tự), lấy tối đa 3 đoạn."""
+        """Enhanced context optimization."""
         if not contexts:
             return []
 
-        cleaned = [self._clean_context(c) for c in contexts if c and c.strip()]
+        # Clean all contexts first
+        cleaned = []
+        for ctx in contexts[:5]:  # Limit input contexts
+            clean_ctx = self._enhanced_clean_context(ctx)
+            if clean_ctx and len(clean_ctx.strip()) > 20:  # Filter too short
+                cleaned.append(clean_ctx)
+
+        # Enhanced deduplication
         unique = []
-        for c in cleaned:
-            if not c:
-                continue
-            if all(self._similar(c, u) <= 0.8 for u in unique):
-                unique.append(c)
-            if len(unique) >= 3:
+        for ctx in cleaned:
+            # Check similarity with existing contexts
+            is_duplicate = any(
+                self._similarity_score(ctx, existing) > 0.75 
+                for existing in unique
+            )
+            
+            if not is_duplicate:
+                unique.append(ctx)
+                
+            if len(unique) >= 3:  # Max 3 contexts
                 break
+
         return unique
 
-    # ---------- Public API ----------
     def build_messages(self, query: str, contexts: List[str]) -> List[dict]:
-        """Trả về danh sách messages theo chuẩn chat-completions."""
+        """Enhanced message building."""
         query = (query or "").strip()
 
-        # 1) Đường tắt cho chào hỏi -> để LLM chào theo system  
+        # Handle greetings
         if self._is_greeting(query):
-            # Đơn giản hóa theo chương trình mẫu - chỉ gửi query trực tiếp
             return [
                 {"role": "system", "content": self.system_message},
                 {"role": "user", "content": query}
             ]
 
-        # 2) Acknowledgement ngắn
+        # Handle simple acknowledgments
         if self._is_simple_query(query):
             return [
                 {"role": "system", "content": self.system_message},
                 {"role": "user", "content": query}
             ]
 
-        # 3) Tối ưu context
+        # Optimize contexts
         optimized = self._optimize_context(contexts)
 
-        # 4) Không có context → yêu cầu nói "không tìm thấy"
+        # Build user message với better structure
         if not optimized:
-            user = dedent(f"""\
-                Câu hỏi của khách hàng: {query}
+            user_content = dedent(f"""\
+                CÂU HỎI: {query}
 
-                Thông tin từ tài liệu:
-                (Không có)
+                THÔNG TIN TÀI LIỆU: Không có thông tin liên quan
 
-                Nếu thiếu thông tin, hãy trả lời đúng quy tắc: 
-                "Tôi không tìm thấy thông tin phù hợp trong tài liệu được cung cấp."
+                Hãy trả lời theo quy tắc khi thiếu thông tin.
             """).strip()
-            return [
-                {"role": "system", "content": self.system_message},
-                {"role": "user", "content": user}
-            ]
+        else:
+            # Better context formatting
+            context_blocks = []
+            for i, ctx in enumerate(optimized, 1):
+                # Smart truncation - keep important parts
+                if len(ctx) > 600:
+                    # Try to truncate at sentence boundary
+                    truncated = ctx[:600]
+                    last_period = truncated.rfind('.')
+                    if last_period > 400:  # If we can find a good break point
+                        ctx = truncated[:last_period + 1] + "..."
+                    else:
+                        ctx = truncated.rstrip() + "..."
+                
+                context_blocks.append(f"[Nguồn {i}]: {ctx}")
+            
+            context_text = "\n\n".join(context_blocks)
+            
+            user_content = dedent(f"""\
+                CÂU HỎI: {query}
 
-        # 5) Ghép context có cấu trúc
-        blocks, total_len = [], 0
-        for i, c in enumerate(optimized, 1):
-            # cắt từng đoạn nếu quá dài, ưu tiên giữ đầu đoạn
-            part = c if len(c) <= 800 else (c[:800].rstrip() + " …")
-            seg = f"Đoạn {i}: {part}"
-            blocks.append(seg)
-            total_len += len(seg)
+                THÔNG TIN TÀI LIỆU BIDV:
+                {context_text}
 
-        context_text = "\n\n".join(blocks)
-
-        user = dedent(f"""\
-            Câu hỏi của khách hàng: {query}
-
-            Thông tin từ tài liệu BIDV:
-            {context_text}
-
-            Hãy phân tích và trả lời đúng trọng tâm theo ĐỊNH DẠNG trong system.
-        """).strip()
-
-        # 6) Bảo hiểm độ dài (char ≠ token nhưng đủ an toàn cơ bản)
-        if len(user) > self.max_chars:
-            logger.warning("Prompt length (%d) exceeds limit (%d), truncating contexts...", len(user), self.max_chars)
-            head = dedent(f"""\
-                Câu hỏi của khách hàng: {query}
-
-                Thông tin từ tài liệu BIDV:
+                Trả lời theo ĐỊNH DẠNG CHUẨN. Tập trung vào thông tin quan trọng nhất cho câu hỏi.
             """).strip()
-            budget = max(200, self.max_chars - len(head) - 150)
-            ctx = (context_text[:budget] + "\n[…đã cắt bớt do giới hạn độ dài…]").strip()
-            user = dedent(f"""\
-                {head}
-                {ctx}
 
-                Hãy trả lời đúng trọng tâm theo ĐỊNH DẠNG trong system.
-            """).strip()
+        # Length safety check
+        if len(user_content) > self.max_chars:
+            logger.warning("Prompt length (%d) exceeds limit, truncating...", len(user_content))
+            
+            # Smart truncation strategy
+            header = f"CÂU HỎI: {query}\n\nTHÔNG TIN TÀI LIỆU BIDV:\n"
+            footer = "\n\nTrả lời theo ĐỊNH DẠNG CHUẨN, tập trung vào thông tin quan trọng nhất."
+            
+            available_space = self.max_chars - len(header) - len(footer) - 50
+            
+            if optimized:
+                # Truncate contexts proportionally
+                total_ctx_len = sum(len(ctx) for ctx in optimized)
+                truncated_contexts = []
+                
+                for i, ctx in enumerate(optimized):
+                    target_len = int((len(ctx) / total_ctx_len) * available_space)
+                    target_len = max(100, min(target_len, len(ctx)))  # Min 100, max original
+                    
+                    if len(ctx) > target_len:
+                        ctx = ctx[:target_len].rstrip() + "..."
+                    
+                    truncated_contexts.append(f"[Nguồn {i+1}]: {ctx}")
+                
+                context_text = "\n\n".join(truncated_contexts)
+            else:
+                context_text = "Không có thông tin liên quan"
+            
+            user_content = header + context_text + footer
 
         return [
             {"role": "system", "content": self.system_message},
-            {"role": "user", "content": user}
+            {"role": "user", "content": user_content}
         ]
 
-    # Backward compatibility (giữ nguyên hành vi cũ)
     def create_prompt(self, query: str, contexts: List[str]) -> str:
+        """Backward compatibility method."""
         messages = self.build_messages(query, contexts)
-        if len(messages) == 3:  # trường hợp có assistant trong pipeline khác (giữ logic cũ nếu cần)
+        if len(messages) == 3:
             return f"{messages[0]['content']}\n\nUser: {messages[1]['content']}\nAssistant: {messages[2]['content']}"
         else:
             return f"{messages[0]['content']}\n\n{messages[1]['content']}"

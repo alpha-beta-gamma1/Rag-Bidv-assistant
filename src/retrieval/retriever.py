@@ -12,8 +12,8 @@ class Retriever:
         self.config = config
         self.embedder = Embedder(config)
         self.vector_store = VectorStore(config)
-        self.top_k = config.get('retrieval.top_k', 3)
-        self.score_threshold = config.get('retrieval.score_threshold', 0.4)
+        self.top_k = config.get('retrieval.top_k', 2)
+        self.score_threshold = config.get('retrieval.score_threshold', 0.5)
     
     def retrieve(self, query: str) -> List[Dict[str, Any]]:
         """Retrieve relevant chunks for a query"""

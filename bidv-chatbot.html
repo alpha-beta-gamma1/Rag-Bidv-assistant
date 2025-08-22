@@ -16,15 +16,12 @@
             padding: 0;
             overflow: hidden;
         }
-        
         .bidv-green {
             background-color: #006837;
         }
-        
         .bidv-light-green {
             background-color: #009B4D;
         }
-        
         .chat-container {
             max-width: 1200px;
             margin: 20px auto;
@@ -36,7 +33,6 @@
             height: calc(100vh - 40px);
             background: white;
         }
-        
         .chat-header {
             background: linear-gradient(135deg, #006837 0%, #009B4D 100%);
             color: white;
@@ -46,7 +42,6 @@
             justify-content: space-between;
             gap: 15px;
         }
-        
         .avatar {
             width: 50px;
             height: 50px;
@@ -57,17 +52,14 @@
             justify-content: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
-        
         .chat-header h2 {
             font-weight: 600;
             font-size: 1.3rem;
         }
-        
         .chat-header p {
             font-size: 0.85rem;
             opacity: 0.9;
         }
-        
         .status-indicator {
             width: 10px;
             height: 10px;
@@ -76,12 +68,10 @@
             display: inline-block;
             margin-right: 5px;
         }
-        
         .header-actions {
             display: flex;
             gap: 10px;
         }
-        
         .header-btn {
             background: rgba(255, 255, 255, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.3);
@@ -95,32 +85,93 @@
             gap: 5px;
             font-size: 0.9rem;
         }
-        
         .header-btn:hover {
             background: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
         }
-        
         .main-content {
             display: flex;
             flex: 1;
             overflow: hidden;
         }
-        
+        /* ===== Sidebar width dùng flex-basis để không vênh layout ===== */
         .history-area {
-            width: 280px;
-            background: #f8fafc;
-            border-right: 1px solid #e2e8f0;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            transition: width 0.3s ease;
+        flex: 0 0 280px;       /* thay vì width: 280px */
+        width: auto;
+        min-width: 0;          /* chặn overflow flex */
+        background: #f8fafc;
+        border-right: 1px solid #e2e8f0;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transition: flex-basis .3s ease; /* mượt hơn khi thu gọn */
         }
-        
         .history-area.collapsed {
-            width: 60px;
+        flex: 0 0 60px;        /* thay vì width: 60px */
         }
-        
+        /* Ẩn icon đồng hồ khi sidebar thu gọn */
+        .history-area.collapsed .history-header i.fas.fa-history {
+        display: none !important;
+        }
+
+
+        /* Chat area không bị đẩy lệch khi sidebar co lại */
+        .chat-area {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        min-width: 0;          /* QUAN TRỌNG: cho phép co giãn đúng */
+        }
+
+        /* Header trong sidebar khi thu gọn */
+        .history-area.collapsed .history-header {
+        justify-content: center;
+        padding: 15px 10px;
+        }
+        /* Ẩn chữ "Lịch sử", chỉ để icon */
+        .history-area.collapsed .history-header > div span {
+        display: none !important;
+        }
+
+        /* Ẩn search + nút "Cuộc trò chuyện mới" + section label khi thu gọn */
+        .history-area.collapsed .history-search,
+        .history-area.collapsed .new-chat-btn,
+        .history-area.collapsed .history-section {
+        display: none !important;
+        }
+
+        /* Item trong lịch sử khi thu gọn: chỉ còn icon, padding nhỏ lại */
+        .history-area.collapsed .history-item {
+        justify-content: center;
+        padding: 12px 8px !important;
+        border-left-color: transparent !important;
+        }
+        .history-area.collapsed .history-item.active {
+        background: transparent;
+        }
+        .history-area.collapsed .history-icon {
+        margin: 0 !important;
+        font-size: 1.1rem;
+        }
+        /* Ẩn text và actions khi thu gọn */
+        .history-area.collapsed .history-item-content,
+        .history-area.collapsed .history-actions {
+        display: none !important;
+        }
+
+        /* Giữ hiệu ứng xoay mũi tên */
+        .history-toggle {
+        cursor: pointer;
+        transition: transform .3s ease;
+        }
+        .history-toggle.rotated {
+        transform: rotate(180deg);
+        }
+
+/* Responsive vẫn hoạt động – không cần width riêng nữa
+   (nếu muốn, có thể bỏ khối @media cũ cho history-area) */
+
         .history-header {
             background: #f1f5f9;
             padding: 15px 20px;
@@ -131,31 +182,25 @@
             justify-content: space-between;
             align-items: center;
         }
-        
         .history-header.collapsed {
             justify-content: center;
             padding: 15px 10px;
         }
-        
         .history-header i {
             color: #009B4D;
         }
-        
         .history-toggle {
             cursor: pointer;
             transition: transform 0.3s ease;
         }
-        
         .history-toggle.rotated {
             transform: rotate(180deg);
         }
-        
         .history-search {
             padding: 15px 20px;
             background: white;
             border-bottom: 1px solid #e2e8f0;
         }
-        
         .search-input {
             width: 100%;
             padding: 8px 12px;
@@ -163,12 +208,10 @@
             border-radius: 8px;
             outline: none;
         }
-        
         .search-input:focus {
             border-color: #009B4D;
             box-shadow: 0 0 0 3px rgba(0, 155, 77, 0.1);
         }
-        
         .new-chat-btn {
             margin: 10px 20px;
             background: linear-gradient(135deg, #006837 0%, #009B4D 100%);
@@ -183,18 +226,15 @@
             gap: 8px;
             font-weight: 500;
         }
-        
         .new-chat-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(0, 104, 55, 0.3);
         }
-        
         .new-chat-btn.collapsed {
             margin: 10px 10px;
             justify-content: center;
             padding: 10px;
         }
-        
         .history-section {
             padding: 15px 20px;
             background: #f1f5f9;
@@ -203,18 +243,15 @@
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        
-        .history-section.collapsed {
-            display: none;
-        }
-        
         .history-list {
             flex: 1;
             overflow-y: auto;
             padding: 5px 0;
         }
-        
         .history-item {
             display: flex;
             align-items: center;
@@ -223,32 +260,26 @@
             transition: all 0.3s;
             border-left: 4px solid transparent;
         }
-        
         .history-item:hover {
             background: #e2e8f0;
         }
-        
         .history-item.active {
             background: #e2e8f0;
             border-left-color: #009B4D;
         }
-        
         .history-item.collapsed {
             justify-content: center;
             padding: 15px 10px;
         }
-        
         .history-icon {
             color: #64748b;
             margin-right: 12px;
             font-size: 1.2rem;
         }
-        
         .history-item-content {
             flex: 1;
             overflow: hidden;
         }
-        
         .history-title {
             font-weight: 500;
             color: #334155;
@@ -258,26 +289,21 @@
             text-overflow: ellipsis;
             font-size: 0.9rem;
         }
-        
         .history-date {
             font-size: 0.75rem;
             color: #64748b;
         }
-        
         .history-actions {
             display: none;
             gap: 8px;
             margin-left: 10px;
         }
-        
         .history-item:hover .history-actions {
             display: flex;
         }
-        
         .history-actions.collapsed {
             display: none !important;
         }
-        
         .action-btn {
             background: transparent;
             border: none;
@@ -286,23 +312,19 @@
             transition: all 0.3s;
             font-size: 0.9rem;
         }
-        
         .action-btn:hover {
             color: #334155;
             transform: scale(1.1);
         }
-        
         .pin-btn.pinned {
             color: #009B4D;
         }
-        
         .chat-area {
             flex: 1;
             display: flex;
             flex-direction: column;
             overflow: hidden;
         }
-        
         .service-category {
             display: flex;
             gap: 10px;
@@ -312,11 +334,9 @@
             overflow-x: auto;
             scrollbar-width: none;
         }
-        
         .service-category::-webkit-scrollbar {
             display: none;
         }
-        
         .category-btn {
             background: #f1f5f9;
             border: 1px solid #e2e8f0;
@@ -327,18 +347,15 @@
             transition: all 0.3s;
             white-space: nowrap;
         }
-        
         .category-btn:hover {
             background: #e2e8f0;
             transform: translateY(-1px);
         }
-        
         .category-btn.active {
             background: #006837;
             color: white;
             border-color: #006837;
         }
-        
         .quick-actions {
             display: flex;
             flex-wrap: wrap;
@@ -347,7 +364,6 @@
             background: white;
             border-bottom: 1px solid #e2e8f0;
         }
-        
         .quick-action {
             background: #f1f5f9;
             color: #334155;
@@ -358,12 +374,10 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-        
         .quick-action:hover {
             background: #e2e8f0;
             transform: translateY(-1px);
         }
-        
         .chat-body {
             flex: 1;
             overflow-y: auto;
@@ -373,7 +387,6 @@
             gap: 15px;
             background: #f8fafc;
         }
-        
         .message {
             max-width: 80%;
             padding: 12px 16px;
@@ -382,32 +395,27 @@
             position: relative;
             animation: fadeIn 0.3s ease-out;
         }
-        
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
         .bot-message {
             align-self: flex-start;
             background: white;
             border: 1px solid #e2e8f0;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
-        
         .user-message {
             align-self: flex-end;
             background: linear-gradient(135deg, #006837 0%, #009B4D 100%);
             color: white;
         }
-        
         .message-time {
             font-size: 0.7rem;
             opacity: 0.6;
             margin-top: 4px;
             text-align: right;
         }
-        
         .typing-indicator {
             display: flex;
             align-items: center;
@@ -419,7 +427,6 @@
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             margin-bottom: 15px;
         }
-        
         .typing-dot {
             width: 8px;
             height: 8px;
@@ -427,16 +434,13 @@
             border-radius: 50%;
             animation: pulse 1.5s infinite ease-in-out;
         }
-        
         .typing-dot:nth-child(1) { animation-delay: 0s; }
         .typing-dot:nth-child(2) { animation-delay: 0.2s; }
         .typing-dot:nth-child(3) { animation-delay: 0.4s; }
-        
         @keyframes pulse {
             0%, 100% { transform: scale(0.8); opacity: 0.6; }
             50% { transform: scale(1); opacity: 1; }
         }
-        
         .chat-input-container {
             padding: 20px;
             background: white;
@@ -445,7 +449,6 @@
             gap: 10px;
             align-items: center;
         }
-        
         .chat-input {
             flex: 1;
             padding: 14px 20px;
@@ -455,12 +458,10 @@
             font-size: 1rem;
             transition: all 0.3s;
         }
-        
         .chat-input:focus {
             border-color: #009B4D;
             box-shadow: 0 0 0 3px rgba(0, 155, 77, 0.1);
         }
-        
         .send-button {
             width: 50px;
             height: 50px;
@@ -475,19 +476,16 @@
             transition: all 0.3s;
             box-shadow: 0 4px 10px rgba(0, 104, 55, 0.3);
         }
-        
         .send-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 15px rgba(0, 104, 55, 0.4);
         }
-        
         .send-button:disabled {
             background: #cbd5e1;
             transform: none;
             box-shadow: none;
             cursor: not-allowed;
         }
-        
         /* Context Box */
         .context-box {
             position: fixed;
@@ -505,7 +503,6 @@
             flex-direction: column;
             overflow: hidden;
         }
-        
         .context-header {
             background: #f1f5f9;
             padding: 15px 20px;
@@ -514,7 +511,6 @@
             justify-content: space-between;
             align-items: center;
         }
-        
         .context-header h3 {
             font-weight: 600;
             color: #334155;
@@ -522,11 +518,9 @@
             align-items: center;
             gap: 10px;
         }
-        
         .context-header i {
             color: #009B4D;
         }
-        
         .close-context {
             background: #e2e8f0;
             border: none;
@@ -539,12 +533,10 @@
             justify-content: center;
             transition: all 0.3s;
         }
-        
         .close-context:hover {
             background: #cbd5e1;
             transform: scale(1.1);
         }
-        
         .context-content {
             flex: 1;
             overflow-y: auto;
@@ -552,7 +544,6 @@
             font-size: 0.9rem;
             line-height: 1.6;
         }
-        
         .context-item {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
@@ -560,7 +551,6 @@
             padding: 12px;
             margin-bottom: 15px;
         }
-        
         .context-source {
             font-size: 0.85rem;
             color: #009B4D;
@@ -570,19 +560,16 @@
             align-items: center;
             gap: 5px;
         }
-        
         .context-text {
             color: #334155;
             line-height: 1.6;
         }
-        
         .no-context {
             color: #64748b;
             font-style: italic;
             text-align: center;
             padding: 40px 20px;
         }
-        
         .show-context-btn {
             background: #f1f5f9;
             color: #334155;
@@ -598,16 +585,13 @@
             margin-top: 8px;
             width: fit-content;
         }
-        
         .show-context-btn:hover {
             background: #e2e8f0;
             transform: translateY(-1px);
         }
-        
         .show-context-btn i {
             font-size: 0.9rem;
         }
-        
         /* Overlay */
         .overlay {
             position: fixed;
@@ -619,42 +603,34 @@
             z-index: 999;
             display: none;
         }
-        
         /* Responsive design */
         @media (max-width: 1024px) {
             .history-area {
                 width: 240px;
             }
-            
             .history-area.collapsed {
                 width: 50px;
             }
         }
-        
         @media (max-width: 768px) {
             .chat-container {
                 margin: 10px;
                 border-radius: 15px;
                 height: calc(100vh - 20px);
             }
-            
             .message {
                 max-width: 85%;
             }
-            
             .chat-header {
                 padding: 15px;
             }
-            
             .avatar {
                 width: 40px;
                 height: 40px;
             }
-            
             .history-area {
                 width: 200px;
             }
-            
             .history-area.collapsed {
                 width: 40px;
             }
@@ -678,7 +654,6 @@
                 </button>
             </div>
         </div>
-
         <!-- Main Content Area -->
         <div class="main-content">
             <!-- History Area -->
@@ -690,28 +665,14 @@
                     </div>
                     <i class="fas fa-chevron-left history-toggle" id="historyToggle"></i>
                 </div>
-                
                 <div class="history-search">
                     <input type="text" class="search-input" id="searchInput" placeholder="Tìm kiếm...">
                 </div>
-                
                 <button class="new-chat-btn" id="newChatBtn">
                     <i class="fas fa-plus"></i> <span class="btn-text">Cuộc trò chuyện mới</span>
                 </button>
-                
-                <div class="history-section" id="todaySection">Hôm nay</div>
-                <div id="todayList" class="history-list"></div>
-                
-                <div class="history-section" id="weekSection">Tuần này</div>
-                <div id="weekList" class="history-list"></div>
-                
-                <div class="history-section" id="monthSection">Tháng này</div>
-                <div id="monthList" class="history-list"></div>
-                
-                <div class="history-section" id="olderSection">Cũ hơn</div>
-                <div id="olderList" class="history-list"></div>
+                <div id="historyList" class="history-list"></div>
             </div>
-
             <!-- Chat Area -->
             <div class="chat-area">
                 <!-- Service Categories -->
@@ -722,12 +683,10 @@
                     <button class="category-btn" onclick="setCategory('cards', this)">Mở thẻ</button>
                     <button class="category-btn" onclick="setCategory('services', this)">Dịch vụ</button>
                 </div>
-
                 <!-- Quick Actions -->
                 <div id="quickActions" class="quick-actions">
                     <!-- Will be updated based on category -->
                 </div>
-
                 <!-- Chat Body -->
                 <div id="chatBody" class="chat-body">
                     <!-- Welcome Message -->
@@ -738,7 +697,6 @@
                         <div class="message-time">Vừa xong</div>
                     </div>
                 </div>
-
                 <!-- Chat Input -->
                 <div class="chat-input-container">
                     <input 
@@ -756,7 +714,6 @@
             </div>
         </div>
     </div>
-
     <!-- Context Modal -->
     <div class="overlay" id="contextOverlay" onclick="hideContext()"></div>
     <div class="context-box" id="contextBox">
@@ -774,18 +731,15 @@
             </div>
         </div>
     </div>
-
     <script>
         // Configuration - change this to your API endpoint
         const API_ENDPOINT = 'http://localhost:8000/query'; // Update with your FastAPI URL
-        
         // Current category
         let currentCategory = 'general';
         let currentContexts = [];
         let currentChatId = null;
         let chatHistory = [];
         let isHistoryCollapsed = false;
-        
         // Quick actions by category
         const quickActions = {
             general: [
@@ -794,13 +748,13 @@
             ],
             interest: [
                 { text: "Lãi suất tiết kiệm?", query: "Lãi suất tiền gửi tiết kiệm hiện tại là bao nhiêu?" },
-                { text: "Lãi suất vay?", query: "Lãi suất vay vốn hiện hành?" },
-                { text: "Lãi suất USD?", query: "Lãi suất tiền gửi USD?" }
+                { text: "Lãi suất vay?", query: "Lãi suất vay vốn hiện tại là bao nhiêu?" },
+                { text: "Lãi suất USD?", query: "Lãi suất tiền gửi USD hiện tại là bao nhiêu?" }
             ],
             fees: [
-                { text: "Phí chuyển tiền?", query: "Phí chuyển tiền trong nước và quốc tế?" },
-                { text: "Phí quản lý tài khoản?", query: "Phí quản lý tài khoản ngân hàng?" },
-                { text: "Phí rút tiền ATM?", query: "Phí rút tiền mặt tại ATM?" }
+                { text: "Phí chuyển tiền?", query: "Phí chuyển tiền trong nước và quốc tế là bao nhiêu?" },
+                { text: "Phí quản lý tài khoản?", query: "Phí quản lý tài khoản ngân hàng là bao nhiêu?" },
+                { text: "Phí rút tiền ATM?", query: "Phí rút tiền mặt tại ATM là bao nhiêu?" }
             ],
             cards: [
                 { text: "Mở thẻ tín dụng?", query: "Thủ tục và điều kiện mở thẻ tín dụng BIDV?" },
@@ -813,7 +767,6 @@
                 { text: "Ngân hàng 24/7?", query: "Dịch vụ ngân hàng tự động 24/7?" }
             ]
         };
-        
         // DOM elements
         const chatBody = document.getElementById('chatBody');
         const userInput = document.getElementById('userInput');
@@ -827,16 +780,7 @@
         const historyToggle = document.getElementById('historyToggle');
         const newChatBtn = document.getElementById('newChatBtn');
         const searchInput = document.getElementById('searchInput');
-        
-        // History section elements
-        const todayList = document.getElementById('todayList');
-        const weekList = document.getElementById('weekList');
-        const monthList = document.getElementById('monthList');
-        const olderList = document.getElementById('olderList');
-        const todaySection = document.getElementById('todaySection');
-        const weekSection = document.getElementById('weekSection');
-        const monthSection = document.getElementById('monthSection');
-        const olderSection = document.getElementById('olderSection');
+        const historyList = document.getElementById('historyList');
         
         // Load saved chats from localStorage
         function loadChats() {
@@ -853,14 +797,12 @@
                 chatHistory = [];
                 createNewChat();
             }
-            
             // Set current chat to the most recent one
             if (chatHistory.length > 0) {
                 const latestChat = chatHistory[chatHistory.length - 1];
                 currentChatId = latestChat.id;
                 loadChatMessages(currentChatId);
             }
-            
             renderHistory();
         }
         
@@ -877,7 +819,6 @@
         function createNewChat(title = null) {
             const chatId = 'chat_' + Date.now();
             const now = new Date();
-            
             const newChat = {
                 id: chatId,
                 title: title || 'Cuộc trò chuyện mới',
@@ -886,7 +827,6 @@
                 messages: [],
                 pinned: false
             };
-            
             chatHistory.push(newChat);
             currentChatId = chatId;
             saveChats();
@@ -904,7 +844,6 @@
         function addMessageToChat(content, isUser = false) {
             const chat = getCurrentChat();
             if (!chat) return;
-            
             const now = new Date();
             const message = {
                 id: 'msg_' + Date.now(),
@@ -913,20 +852,16 @@
                 timestamp: now.toISOString(),
                 contexts: isUser ? [] : (currentContexts || [])
             };
-            
             // Auto-generate title from first user message
             if (isUser && chat.messages.length === 0) {
                 chat.title = content.length > 50 ? content.substring(0, 50) + '...' : content;
             }
-            
             chat.messages.push(message);
             chat.updatedAt = now.toISOString();
             saveChats();
-            
             // Update UI
             const messageDiv = document.createElement('div');
             messageDiv.className = isUser ? 'message user-message' : 'message bot-message';
-            
             // Add show context button for bot messages with contexts
             let contextButton = '';
             if (!isUser && message.contexts && message.contexts.length > 0) {
@@ -936,13 +871,11 @@
                     </button>
                 `;
             }
-            
             messageDiv.innerHTML = `
                 <div class="message-content">${content}</div>
                 <div class="message-time">${formatTime(now)}</div>
                 ${contextButton}
             `;
-            
             chatBody.appendChild(messageDiv);
             chatBody.scrollTop = chatBody.scrollHeight;
         }
@@ -951,19 +884,16 @@
         function loadChatMessages(chatId) {
             // Clear current chat
             chatBody.innerHTML = '';
-            
             const chat = chatHistory.find(c => c.id === chatId);
             if (!chat || chat.messages.length === 0) {
                 // Add welcome message if no messages
                 addMessageToChat('Xin chào! Tôi là trợ lý ảo của BIDV. Tôi có thể giúp bạn tra cứu thông tin về lãi suất, phí dịch vụ, cách mở thẻ và các dịch vụ ngân hàng khác.', false);
                 return;
             }
-            
             // Load all messages
             chat.messages.forEach(msg => {
                 const messageDiv = document.createElement('div');
                 messageDiv.className = msg.type === 'user' ? 'message user-message' : 'message bot-message';
-                
                 // Add show context button for bot messages with contexts
                 let contextButton = '';
                 if (msg.type === 'bot' && msg.contexts && msg.contexts.length > 0) {
@@ -973,16 +903,13 @@
                         </button>
                     `;
                 }
-                
                 messageDiv.innerHTML = `
                     <div class="message-content">${msg.content}</div>
                     <div class="message-time">${formatTime(new Date(msg.timestamp))}</div>
                     ${contextButton}
                 `;
-                
                 chatBody.appendChild(messageDiv);
             });
-            
             chatBody.scrollTop = chatBody.scrollHeight;
         }
         
@@ -999,88 +926,34 @@
             });
         }
         
-        // Format date for relative display
-        function formatRelativeDate(date) {
-            const now = new Date();
-            const diffTime = Math.abs(now - new Date(date));
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            
-            if (diffDays === 1) return 'Hôm nay';
-            if (diffDays === 2) return 'Hôm qua';
-            if (diffDays <= 7) return `${diffDays - 1} ngày trước`;
-            if (diffDays <= 30) return `${Math.floor(diffDays / 7)} tuần trước`;
-            if (diffDays <= 365) return `${Math.floor(diffDays / 30)} tháng trước`;
-            return `${Math.floor(diffDays / 365)} năm trước`;
-        }
-        
-        // Group chats by date
-        function groupChatsByDate(chats) {
-            const now = new Date();
-            const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-            const oneWeekAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
-            const oneMonthAgo = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);
-            
-            return {
-                today: chats.filter(chat => new Date(chat.updatedAt) >= today),
-                week: chats.filter(chat => new Date(chat.updatedAt) >= oneWeekAgo && new Date(chat.updatedAt) < today),
-                month: chats.filter(chat => new Date(chat.updatedAt) >= oneMonthAgo && new Date(chat.updatedAt) < oneWeekAgo),
-                older: chats.filter(chat => new Date(chat.updatedAt) < oneMonthAgo)
-            };
+        // Sort chats by date
+        function sortChatsByDate(chats) {
+            return [...chats].sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
         }
         
         // Render history list
         function renderHistory() {
-            // Clear all lists
-            todayList.innerHTML = '';
-            weekList.innerHTML = '';
-            monthList.innerHTML = '';
-            olderList.innerHTML = '';
-            
+            // Clear the list
+            historyList.innerHTML = '';
             // Sort chats by updated date (newest first)
-            const sortedChats = [...chatHistory].sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
-            
+            const sortedChats = sortChatsByDate(chatHistory);
             // Filter by search if needed
             const searchTerm = searchInput.value.trim().toLowerCase();
             const filteredChats = searchTerm ? sortedChats.filter(chat => 
                 chat.title.toLowerCase().includes(searchTerm) ||
                 chat.messages.some(msg => msg.content.toLowerCase().includes(searchTerm))
             ) : sortedChats;
-            
-            // Group chats by date
-            const groupedChats = groupChatsByDate(filteredChats);
-            
-            // Render pinned chats first, then others
-            Object.keys(groupedChats).forEach(group => {
-                const groupList = document.getElementById(`${group}List`);
-                const groupSection = document.getElementById(`${group}Section`);
-                
-                // Clear the list
-                groupList.innerHTML = '';
-                
-                // Get chats for this group
-                let groupChats = groupedChats[group];
-                
-                // Show/hide section based on whether there are chats
-                if (groupChats.length > 0) {
-                    groupSection.style.display = 'flex';
-                    
-                    // Sort: pinned first, then by date
-                    groupChats.sort((a, b) => {
-                        if (a.pinned && !b.pinned) return -1;
-                        if (!a.pinned && b.pinned) return 1;
-                        return new Date(b.updatedAt) - new Date(a.updatedAt);
-                    });
-                    
-                    // Add chats to the list
-                    groupChats.forEach(chat => {
-                        const div = createHistoryItem(chat);
-                        groupList.appendChild(div);
-                    });
-                } else {
-                    groupSection.style.display = isHistoryCollapsed ? 'none' : 'flex';
-                }
+            // Sort: pinned first, then by date
+            const sortedFilteredChats = filteredChats.sort((a, b) => {
+                if (a.pinned && !b.pinned) return -1;
+                if (!a.pinned && b.pinned) return 1;
+                return new Date(b.updatedAt) - new Date(a.updatedAt);
             });
-            
+            // Add chats to the list
+            sortedFilteredChats.forEach(chat => {
+                const div = createHistoryItem(chat);
+                historyList.appendChild(div);
+            });
             // Update collapsed state
             updateCollapsedState();
         }
@@ -1091,10 +964,8 @@
             div.className = `history-item ${chat.id === currentChatId ? 'active' : ''}`;
             div.dataset.chatId = chat.id;
             div.onclick = () => loadChat(chat.id);
-            
             const lastMessage = chat.messages.length > 0 ? chat.messages[chat.messages.length - 1] : null;
             const lastUpdate = lastMessage ? new Date(lastMessage.timestamp) : new Date(chat.createdAt);
-            
             div.innerHTML = `
                 <div class="history-icon">
                     <i class="fas fa-comment"></i>
@@ -1115,7 +986,6 @@
                     </button>
                 </div>
             `;
-            
             return div;
         }
         
@@ -1126,18 +996,24 @@
             historyHeader.classList.toggle('collapsed', isHistoryCollapsed);
             historyToggle.classList.toggle('rotated', isHistoryCollapsed);
             newChatBtn.classList.toggle('collapsed', isHistoryCollapsed);
-            
-            // Update all sections and actions
+            // Update collapsed state
             updateCollapsedState();
         }
         
         // Update collapsed state
         function updateCollapsedState() {
-            const elements = document.querySelectorAll('.history-section, .history-actions, .btn-text');
+            // Ẩn/hiện nhóm nút và text trong nút "Cuộc trò chuyện mới"
+            const elements = document.querySelectorAll('.history-actions, .btn-text');
             elements.forEach(el => {
                 el.classList.toggle('collapsed', isHistoryCollapsed);
             });
-        }
+
+            // Đồng bộ class cho từng item (giúp áp CSS tùy biến khi cần)
+            document.querySelectorAll('.history-item').forEach(item => {
+                item.classList.toggle('collapsed', isHistoryCollapsed);
+            });
+            }
+
         
         // Load a specific chat
         function loadChat(chatId) {
@@ -1155,7 +1031,6 @@
         function renameChat(chatId) {
             const chat = chatHistory.find(c => c.id === chatId);
             if (!chat) return;
-            
             const newName = prompt('Đổi tên cuộc trò chuyện:', chat.title);
             if (newName && newName.trim() !== '') {
                 chat.title = newName.trim();
@@ -1168,7 +1043,10 @@
         // Delete chat
         function deleteChat(chatId) {
             if (confirm('Bạn có chắc chắn muốn xóa cuộc trò chuyện này?')) {
-                chatHistory = chatHistory.filter(chat => chat.id !== chatId);
+                const chatIndex = chatHistory.findIndex(chat => chat.id === chatId);
+                if (chatIndex === -1) return;
+                
+                chatHistory.splice(chatIndex, 1);
                 
                 // If deleted chat was current, load a different one
                 if (currentChatId === chatId) {
@@ -1180,7 +1058,6 @@
                         loadChatMessages(currentChatId);
                     }
                 }
-                
                 saveChats();
                 renderHistory();
             }
@@ -1216,7 +1093,6 @@
                 btn.classList.remove('active');
             });
             element.classList.add('active');
-            
             // Update category and quick actions
             currentCategory = category;
             updateQuickActions();
@@ -1256,18 +1132,14 @@
         async function sendMessage() {
             const message = userInput.value.trim();
             if (!message) return;
-            
             // Disable input and button
             userInput.value = '';
             userInput.disabled = true;
             sendButton.disabled = true;
-            
             // Add user message
             addMessageToChat(message, true);
-            
             // Show typing indicator
             showTypingIndicator();
-            
             try {
                 const response = await fetch(API_ENDPOINT, {
                     method: 'POST',
@@ -1276,19 +1148,14 @@
                     },
                     body: JSON.stringify({ question: message })
                 });
-                
                 hideTypingIndicator();
-                
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                
                 const data = await response.json();
-                
                 if (data.status === 'success') {
                     // Store contexts for later viewing
                     currentContexts = data.contexts || [];
-                    
                     // Add bot message
                     addMessageToChat(data.response, false);
                 } else {
@@ -1317,23 +1184,39 @@
         
         // Clear chat
         function clearChat() {
-            if (confirm('Bạn có chắc chắn muốn xóa toàn bộ cuộc trò chuyện?')) {
-                // Create new chat
-                createNewChat();
-                // Clear current chat display
-                chatBody.innerHTML = '';
-                // Load the new chat
-                loadChatMessages(currentChatId);
-                // Refresh history
-                renderHistory();
+            // 1. Hiển thị hộp thoại xác nhận
+            if (confirm('Bạn có chắc chắn muốn xóa toàn bộ cuộc trò chuyện này?')) {
+                // Tìm cuộc trò chuyện hiện tại bằng ID
+                const currentChat = chatHistory.find(chat => chat.id === currentChatId);
+
+                if (currentChat) {
+                    // 2. Xóa toàn bộ tin nhắn của cuộc trò chuyện
+                    currentChat.messages = [];
+                    
+                    // Cập nhật lại thời gian để xếp lên đầu danh sách lịch sử
+                    currentChat.updatedAt = new Date().toISOString();
+
+                    // 3. Lưu lịch sử đã được cập nhật
+                    saveChats();
+
+                    // 4. Cập nhật giao diện người dùng
+                    chatBody.innerHTML = '';
+                    
+                    // Thêm lại tin nhắn chào mừng ban đầu
+                    addMessageToChat('Xin chào! Tôi là trợ lý ảo của BIDV. Tôi có thể giúp bạn tra cứu thông tin về lãi suất, phí dịch vụ, cách mở thẻ và các dịch vụ ngân hàng khác.', false);
+                    
+                    // 5. Cập nhật lại danh sách lịch sử ở cột bên trái
+                    renderHistory();
+                } else {
+                    console.error('Không tìm thấy cuộc trò chuyện để xóa.');
+                }
             }
-        }
+        }       
         
         // Show context modal
         function showContext() {
             contextBox.style.display = 'flex';
             contextOverlay.style.display = 'block';
-            
             // Display current contexts
             displayContext(currentContexts);
         }
@@ -1347,7 +1230,6 @@
         // Display context documents
         function displayContext(contexts) {
             contextContent.innerHTML = '';
-            
             if (!contexts || contexts.length === 0) {
                 contextContent.innerHTML = `
                     <div class="no-context">
@@ -1358,11 +1240,9 @@
                 `;
                 return;
             }
-            
             contexts.forEach((context, index) => {
                 const contextItem = document.createElement('div');
                 contextItem.className = 'context-item';
-                
                 // Extract source from context if available
                 let source = 'Tài liệu nội bộ BIDV';
                 if (context.metadata && context.metadata.source) {
@@ -1370,19 +1250,15 @@
                 } else if (context.source) {
                     source = context.source;
                 }
-                
                 const text = context.text || context.page_content || context || 'Nội dung không khả dụng';
-                
                 contextItem.innerHTML = `
                     <div class="context-source">
                         <i class="fas fa-file-alt"></i> ${source}
                     </div>
                     <div class="context-text">${text}</div>
                 `;
-                
                 contextContent.appendChild(contextItem);
             });
-            
             // Scroll to top
             contextContent.scrollTop = 0;
         }
@@ -1391,10 +1267,8 @@
         function initApp() {
             // Load quick actions
             updateQuickActions();
-            
             // Load saved chats
             loadChats();
-            
             // Set up event listeners
             historyToggle.addEventListener('click', toggleHistory);
             newChatBtn.addEventListener('click', () => createNewChat());

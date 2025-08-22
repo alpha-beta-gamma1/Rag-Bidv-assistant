@@ -71,7 +71,7 @@ class ResponseGenerator:
         
         # Pipeline theo thứ tự ưu tiên
         text = self._fix_incomplete_info_statements(text)
-        text = self._fix_nested_numbering_issues(text)
+        # text = self._fix_nested_numbering_issues(text)
         text = self._reduce_redundant_phrases(text)
         text = self._improve_formatting(text)
         text = self._remove_generated_questions(text)
@@ -92,49 +92,49 @@ class ResponseGenerator:
         
         return text
 
-    def _fix_nested_numbering_issues(self, text: str) -> str:
-        """Fix vấn đề đánh số lồng nhau confusing."""
-        # Tìm pattern: "1. Title: 1. SubItem 2. SubItem"
-        # Chuyển thành: "**Title:** - SubItem - SubItem"
+    # def _fix_nested_numbering_issues(self, text: str) -> str:
+    #     """Fix vấn đề đánh số lồng nhau confusing."""
+    #     # Tìm pattern: "1. Title: 1. SubItem 2. SubItem"
+    #     # Chuyển thành: "**Title:** - SubItem - SubItem"
         
-        lines = text.split('\n')
-        processed = []
-        in_numbered_section = False
+    #     lines = text.split('\n')
+    #     processed = []
+    #     in_numbered_section = False
         
-        for line in lines:
-            line = line.strip()
-            if not line:
-                processed.append('')
-                continue
+    #     for line in lines:
+    #         line = line.strip()
+    #         if not line:
+    #             processed.append('')
+    #             continue
             
-            # Main section: "1. Title:"
-            main_match = re.match(r'^(\d+)\.\s+([^:]+):\s*(.*)', line)
-            if main_match:
-                title = main_match.group(2)
-                remainder = main_match.group(3)
-                processed.append(f"**{title}:**")
-                if remainder.strip():
-                    processed.append(remainder)
-                in_numbered_section = True
-                continue
+    #         # Main section: "1. Title:"
+    #         main_match = re.match(r'^(\d+)\.\s+([^:]+):\s*(.*)', line)
+    #         if main_match:
+    #             title = main_match.group(2)
+    #             remainder = main_match.group(3)
+    #             processed.append(f"**{title}:**")
+    #             if remainder.strip():
+    #                 processed.append(remainder)
+    #             in_numbered_section = True
+    #             continue
             
-            # Sub-items: "1. Content 2. Content" trong cùng dòng
-            if in_numbered_section and re.search(r'\d+\.\s+', line):
-                # Split multiple numbered items trong 1 dòng
-                parts = re.split(r'(\d+\.\s+)', line)
-                for i in range(1, len(parts), 2):
-                    if i+1 < len(parts):
-                        content = parts[i+1].strip()
-                        if content:
-                            processed.append(f"- {content}")
-                continue
+    #         # Sub-items: "1. Content 2. Content" trong cùng dòng
+    #         if in_numbered_section and re.search(r'\d+\.\s+', line):
+    #             # Split multiple numbered items trong 1 dòng
+    #             parts = re.split(r'(\d+\.\s+)', line)
+    #             for i in range(1, len(parts), 2):
+    #                 if i+1 < len(parts):
+    #                     content = parts[i+1].strip()
+    #                     if content:
+    #                         processed.append(f"- {content}")
+    #             continue
             
-            # Regular line
-            processed.append(line)
-            if not re.search(r'^\s*-', line):  # Reset if not bullet
-                in_numbered_section = False
+    #         # Regular line
+    #         processed.append(line)
+    #         if not re.search(r'^\s*-', line):  # Reset if not bullet
+    #             in_numbered_section = False
         
-        return '\n'.join(processed)
+    #     return '\n'.join(processed)
 
     def _reduce_redundant_phrases(self, text: str) -> str:
         """Giảm redundancy trong cách diễn đạt."""

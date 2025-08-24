@@ -59,14 +59,19 @@ Before setting up the project, ensure you have the following installed:
 ## Project Structure
 ```
 bidv-chatbot/
-├── app.py              # Main application file
-├── requirements.txt    # Python dependencies
-├── package.json        # Node.js dependencies (if applicable)
-├── config/             # Configuration files (e.g., .env)
-├── models/             # NLP model or intents (e.g., for Rasa or Dialogflow)
-├── static/             # Static files (e.g., CSS, JS for web UI)
-├── templates/          # HTML templates (if using a web framework)
-└── README.md           # This file
+├── app_api.py          # API xử lý yêu cầu giữa chatbot và LLM
+├── main.py             # File khởi chạy chính cho ứng dụng
+├── bidv-chatbot.html   # Giao diện người dùng (UI) viết bằng HTML
+├── requirements.txt    # Danh sách dependencies Python
+├── .gitignore          # Bỏ qua các file/thư mục không cần push lên git
+├── README.md           # Hướng dẫn sử dụng & cài đặt
+│
+├── src/                # Source code chính (xử lý logic, pipeline RAG, ... )
+├── scripts/            # Các script tiện ích (chuẩn bị dữ liệu, build, ...)
+├── tests/              # Unit test và integration test
+├── docker/             # Cấu hình Docker cho việc triển khai
+└── data/
+    └── processed/      # Dữ liệu đã xử lý phục vụ mô hình
 ```
 
 ## Contributing
@@ -81,5 +86,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 For inquiries or support, contact the project maintainer at:
-- Email: your-email@example.com
-- BIDV Support: support@bidv.com.vn
+- Email: bach242503@gmail.com

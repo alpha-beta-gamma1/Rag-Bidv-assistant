@@ -43,21 +43,22 @@
             gap: 15px;
         }
         .avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+            width: 160px;          /* có thể tăng chiều rộng cho giống logo */
+            height: 80px;         /* chiều cao nhỏ hơn để ra hình chữ nhật */
+            border-radius: 8px;   /* bo nhẹ các góc, hoặc để 0 nếu muốn vuông góc */
             background: white;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
+
         .chat-header h2 {
             font-weight: 600;
-            font-size: 1.3rem;
+            font-size: 1.7rem;
         }
         .chat-header p {
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             opacity: 0.9;
         }
         .status-indicator {
@@ -625,8 +626,8 @@
                 padding: 15px;
             }
             .avatar {
-                width: 40px;
-                height: 40px;
+                width: 80px;
+                height: 80px;
             }
             .history-area {
                 width: 200px;
@@ -648,11 +649,11 @@
                 <h2>BIDV Assistant</h2>
                 <p><span class="status-indicator"></span>Online • Ready to help</p>
             </div>
-            <div class="header-actions">
+            <!-- <div class="header-actions">
                 <button class="header-btn" onclick="clearChat()">
                     <i class="fas fa-trash"></i> Xóa
                 </button>
-            </div>
+            </div> -->
         </div>
         <!-- Main Content Area -->
         <div class="main-content">
@@ -743,13 +744,13 @@
         // Quick actions by category
         const quickActions = {
             general: [
-                { text: "Tôi cần hỗ trợ gì ở đây?", query: "Tôi cần hỗ trợ gì ở đây?" },
-                { text: "Cách sử dụng chatbot?", query: "Hướng dẫn sử dụng chatbot BIDV" }
+                { text: "Thời gian làm việc?", query: "Thời gian làm việc của ngân hàng là khi nào?" },
+                { text: "Cách mở tài khoản BIDV?", query: "Hướng dẫn mở tài khoản BIDV" }
             ],
             interest: [
                 { text: "Lãi suất tiết kiệm?", query: "Lãi suất tiền gửi tiết kiệm hiện tại là bao nhiêu?" },
                 { text: "Lãi suất vay?", query: "Lãi suất vay vốn hiện tại là bao nhiêu?" },
-                { text: "Lãi suất USD?", query: "Lãi suất tiền gửi USD hiện tại là bao nhiêu?" }
+                { text: "Lãi suất mua nhà?", query: "Lãi suất vay mua nhà hiện tại là bao nhiêu?" }
             ],
             fees: [
                 { text: "Phí chuyển tiền?", query: "Phí chuyển tiền trong nước và quốc tế là bao nhiêu?" },

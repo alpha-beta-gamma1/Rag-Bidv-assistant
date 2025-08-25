@@ -13,7 +13,7 @@ class PromptTemplate:
 
             ## NGUYÊN TẮC GIAO TIẾP
 
-            - Xưng hô bằng “Quý khách hàng” đối với user.
+            - Gọi user là "Quý khách hàng".
             - Ngôn ngữ: Tiếng Việt, chuyên nghiệp, ngắn gọn, trung lập.
 
             ## PHẠM VI THÔNG TIN

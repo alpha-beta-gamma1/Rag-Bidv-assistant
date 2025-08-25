@@ -604,6 +604,13 @@
             z-index: 999;
             display: none;
         }
+
+        .message-content,
+        .context-text {
+        white-space: pre-wrap;   /* giữ \n thành xuống dòng */
+        overflow-wrap: anywhere; /* chống tràn từ rất dài */
+        }
+
         /* Responsive design */
         @media (max-width: 1024px) {
             .history-area {
@@ -744,13 +751,13 @@
         // Quick actions by category
         const quickActions = {
             general: [
-                { text: "Thời gian làm việc?", query: "Thời gian làm việc của ngân hàng là khi nào?" },
+                { text: "Thời gian làm việc?", query: "Thời gian làm việc tại ngân hàng là khi nào?" },
                 { text: "Cách mở tài khoản BIDV?", query: "Hướng dẫn mở tài khoản BIDV" }
             ],
             interest: [
                 { text: "Lãi suất tiết kiệm?", query: "Lãi suất tiền gửi tiết kiệm hiện tại là bao nhiêu?" },
-                { text: "Lãi suất vay?", query: "Lãi suất vay vốn hiện tại là bao nhiêu?" },
-                { text: "Lãi suất mua nhà?", query: "Lãi suất vay mua nhà hiện tại là bao nhiêu?" }
+                { text: "Lãi suất vay?", query: "Lãi suất vay vốn tại BIDV là bao nhiêu?" },
+                { text: "Lãi suất mua nhà?", query: "Lãi suất vay mua nhà tại BIDV là bao nhiêu?" }
             ],
             fees: [
                 { text: "Phí chuyển tiền?", query: "Phí chuyển tiền trong nước và quốc tế là bao nhiêu?" },

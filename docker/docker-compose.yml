@@ -1,12 +1,51 @@
 version: '3.8'
+
 services:
-  rag-app:
+  bidv-assistant:
     build:
-      context: .
+      context: ..
       dockerfile: docker/Dockerfile
+      args:
+        - NODE_ENV=production
+    ports:
+      - "8000:8000"  # Backend API
     volumes:
-      - ./data:/app/data
-      - ./configs:/app/configs
-      - ./logs:/app/logs
+      - ../data:/app/data:ro  # Read-only for security
+      - ../configs:/app/configs:ro
+      - ../logs:/app/logs
+      - vector_store:/app/data/processed/embeddings  # Persistent vector store
     env_file:
-      - .env
+      - ../.env
+    environment:
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
+      - PORT=8000
+      - MAX_WORKERS=4
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4G
+        reservations:
+          cpus: '1'
+          memory: 2G
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200m"
+        max-file: "10"
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+
+volumes:
+  vector_store:
+    driver: local

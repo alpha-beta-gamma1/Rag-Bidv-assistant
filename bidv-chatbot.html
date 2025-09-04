@@ -725,19 +725,19 @@
     <!-- Context Modal -->
     <div class="overlay" id="contextOverlay" onclick="hideContext()"></div>
     <div class="context-box" id="contextBox">
-        <div class="context-header">
+        <!-- <div class="context-header">
             <h3><i class="fas fa-book-open"></i> Tài liệu tham chiếu</h3>
             <button class="close-context" onclick="hideContext()">
                 <i class="fas fa-times"></i>
             </button>
-        </div>
-        <div id="contextContent" class="context-content">
+        </div> -->
+        <!-- <div id="contextContent" class="context-content">
             <div class="no-context">
                 <i class="fas fa-info-circle" style="font-size: 2rem; color: #cbd5e1; margin-bottom: 10px;"></i>
                 <div>Chưa có tài liệu tham chiếu</div>
                 <div style="font-size: 0.8rem;">Hãy hỏi một câu hỏi để xem tài liệu tham chiếu</div>
             </div>
-        </div>
+        </div> -->
     </div>
     <script>
         // Configuration - change this to your API endpoint
@@ -872,13 +872,13 @@
             messageDiv.className = isUser ? 'message user-message' : 'message bot-message';
             // Add show context button for bot messages with contexts
             let contextButton = '';
-            if (!isUser && message.contexts && message.contexts.length > 0) {
-                contextButton = `
-                    <button class="show-context-btn" onclick="showContext()">
-                        <i class="fas fa-book"></i> Xem tài liệu tham chiếu
-                    </button>
-                `;
-            }
+            // if (!isUser && message.contexts && message.contexts.length > 0) {
+            //     contextButton = `
+            //         <button class="show-context-btn" onclick="showContext()">
+            //             <i class="fas fa-book"></i> Xem tài liệu tham chiếu
+            //         </button>
+            //     `;
+            // }
             messageDiv.innerHTML = `
                 <div class="message-content">${content}</div>
                 <div class="message-time">${formatTime(now)}</div>
@@ -904,13 +904,13 @@
                 messageDiv.className = msg.type === 'user' ? 'message user-message' : 'message bot-message';
                 // Add show context button for bot messages with contexts
                 let contextButton = '';
-                if (msg.type === 'bot' && msg.contexts && msg.contexts.length > 0) {
-                    contextButton = `
-                        <button class="show-context-btn" onclick="showContext()">
-                            <i class="fas fa-book"></i> Xem tài liệu tham chiếu
-                        </button>
-                    `;
-                }
+                // if (msg.type === 'bot' && msg.contexts && msg.contexts.length > 0) {
+                //     contextButton = `
+                //         <button class="show-context-btn" onclick="showContext()">
+                //             <i class="fas fa-book"></i> Xem tài liệu tham chiếu
+                //         </button>
+                //     `;
+                // }
                 messageDiv.innerHTML = `
                     <div class="message-content">${msg.content}</div>
                     <div class="message-time">${formatTime(new Date(msg.timestamp))}</div>

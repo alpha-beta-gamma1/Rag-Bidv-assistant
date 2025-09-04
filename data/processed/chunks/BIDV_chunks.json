@@ -1,0 +1,451 @@
+[
+  {
+    "type": "text",
+    "title": "Tóm Tắt Điều Hành",
+    "content": "Ngân hàng TMCP Đầu tư và Phát triển Việt Nam (BIDV) duy trì vị thế là một trong những định chế tài chính hàng đầu tại Việt Nam, với tổng tài sản đạt trên 2,7 triệu tỷ đồng và dư nợ tín dụng đứng đầu thị trường vào cuối năm 2024.1 Sự thành công của BIDV dựa trên một hệ sinh thái sản phẩm toàn diện, được xây dựng và phát triển trên nền tảng công nghệ tiên tiến và chiến lược chuyển đổi số quyết liệt. Ngân hàng đã không ngừng đa dạng hóa danh mục sản phẩm cho cả khách hàng cá nhân và doanh nghiệp, từ các tài khoản thanh toán và tiết kiệm linh hoạt đến các gói tín dụng chuyên biệt và dịch vụ ngân hàng đầu tư. BIDV đã tích cực áp dụng các công nghệ mới như eKYC để số hóa quy trình và nâng cao trải nghiệm khách hàng, đồng thời đầu tư mạnh mẽ vào hệ thống Core Banking cốt lõi để đảm bảo hiệu suất và an toàn giao dịch.2 Bên cạnh đó, BIDV cũng thể hiện tầm nhìn chiến lược dài hạn thông qua việc chủ động tuân thủ các chuẩn mực quản trị rủi ro quốc tế như Basel III và đẩy mạnh tài chính bền vững theo tiêu chuẩn ESG.1 Đáng chú ý, BIDV đã chuyển đổi mô hình cạnh tranh sang hợp tác, xây dựng một mạng lưới liên kết rộng lớn với các công ty Fintech và BigTech, củng cố vị thế dẫn đầu trong kỷ nguyên số.",
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "Tóm Tắt Điều Hành"
+    },
+    "embedding_dimension": 768
+  },
+  {
+    "type": "text",
+    "title": "1.1. Tài khoản & Thanh toán",
+    "content": "BIDV cung cấp một danh mục đa dạng các loại tài khoản nhằm đáp ứng nhu cầu của nhiều phân khúc khách hàng khác nhau. Đối với khách hàng cá nhân, bên cạnh tài khoản thanh toán thông thường, ngân hàng còn có các sản phẩm như tài khoản kinh doanh chứng khoán, tài khoản tiểu thương và tài khoản chuyên dùng.8 Đặc biệt, BIDV còn giới thiệu dịch vụ \"Tài khoản như ý\", cho phép khách hàng lựa chọn và sở hữu các số tài khoản theo ý muốn, mang đến một trải nghiệm cá nhân hóa và độc đáo.10 Việc mở tài khoản tại BIDV có thể thực hiện thông qua hai hình thức chính: trực tiếp tại quầy giao dịch hoặc trực tuyến thông qua quy trình định danh điện tử eKYC.14 Đối với quy trình eKYC, khách hàng chỉ cần một điện thoại thông minh, chụp ảnh giấy tờ tùy thân (CMND/CCCD/Hộ chiếu) và ảnh chân dung để hệ thống tự động xác thực thông tin, giúp việc mở tài khoản trở nên nhanh chóng và tiện lợi.2 Ngược lại, việc đóng tài khoản và cập nhật thông tin cá nhân như số điện thoại yêu cầu khách hàng phải đến trực tiếp chi nhánh để thực hiện.16 Tài khoản không phát sinh giao dịch hoặc không duy trì số dư tối thiểu trong 6 tháng liên tục có thể bị khóa tự động.17 Biểu phí quản lý tài khoản thanh toán tại BIDV được áp dụng tùy thuộc vào số dư duy trì, với mức phí được miễn hoàn toàn đối với tài khoản có số dư từ 10 triệu đồng trở lên.18 Biểu phí chi tiết cho thấy các loại phí khác như phí chuyển tiền, phí rút tiền mặt, và phí khóa/mở tài khoản cũng được quy định rõ ràng.18 Sự kết hợp giữa dịch vụ mở tài khoản eKYC và sản phẩm \"Tài khoản như ý\" cho thấy một chiến lược dịch vụ kép.",
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "1.1. Tài khoản & Thanh toán"
+    },
+    "embedding_dimension": 768
+  },
+  {
+    "type": "text",
+    "title": "1.1. Tài khoản & Thanh toán",
+    "content": "Một mặt, việc số hóa quy trình eKYC giúp BIDV giảm thiểu đáng kể chi phí vận hành, giảm tải áp lực lên các chi nhánh vật lý và tối ưu hóa quy trình thủ công.19 Mặt khác, việc cung cấp dịch vụ cá nhân hóa như \"Tài khoản như ý\" tạo ra một nguồn doanh thu phí mới và thu hút nhóm khách hàng trẻ, ưa chuộng sự độc đáo. Đây là một bước tiến vượt trội, thể hiện BIDV không chỉ đơn thuần số hóa các quy trình cũ mà còn đang xây dựng các mô hình kinh doanh mới trên nền tảng số.",
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "1.1. Tài khoản & Thanh toán"
+    },
+    "embedding_dimension": 768
+  },
+  {
+    "type": "text",
+    "title": "1.2. Danh mục Thẻ Ngân hàng",
+    "content": "BIDV phát hành một danh mục thẻ ngân hàng đa dạng, bao gồm thẻ ghi nợ nội địa/quốc tế, thẻ tín dụng và thẻ trả trước.8 Đặc biệt, phân khúc thẻ tín dụng được phát triển chuyên biệt, từ các dòng thẻ cao cấp như BIDV Visa Infinite và BIDV MasterCard Platinum đến các dòng thẻ chuyên dụng cho từng nhóm đối tượng như BIDV Visa Cashback Online và BIDV MasterCard Inspire.10 Điều kiện mở thẻ tín dụng được xác định dựa trên thu nhập và tài sản bảo đảm, ví dụ, thẻ BIDV Visa Infinite dành cho khách hàng có thu nhập từ 100 triệu đồng/tháng trở lên hoặc có số dư tiền gửi từ 5 tỷ đồng.10 Các dòng thẻ tín dụng của BIDV đi kèm với nhiều ưu đãi đặc trưng, bao gồm các chương trình hoàn tiền (cashback) lên đến 10% tại các siêu thị, cơ sở y tế, giáo dục 21, tích điểm đổi quà, và trả góp 0% lãi suất tại các đối tác liên kết.22 Đối với khách hàng cao cấp, thẻ còn tích hợp các đặc quyền như miễn phí sử dụng phòng chờ sân bay, dịch vụ golf và spa.21 Phí rút tiền mặt trên thẻ tín dụng BIDV là 3-4% số tiền rút, tối thiểu 50.000 VNĐ.23 Việc BIDV phát triển các dòng thẻ chuyên biệt không chỉ là một chiến lược đa dạng hóa sản phẩm đơn thuần mà còn là một phương pháp tiếp cận thị trường tinh tế. Thay vì chỉ cung cấp các dòng thẻ chung chung, BIDV đã nhận diện và nhắm đến các \"ngách\" khách hàng cụ thể với hành vi chi tiêu đặc trưng. Chẳng hạn, thẻ Cashback Online hướng đến những người tiêu dùng thường xuyên mua sắm trên các sàn thương mại điện tử như Tiki, Shopee, trong khi thẻ Platinum Cashback lại tập trung vào khách hàng gia đình có chi tiêu cao cho nhu cầu thiết yếu.21 Chiến lược này không chỉ giúp BIDV thu hút khách hàng mới mà còn tạo ra nguồn dữ liệu quý giá về hành vi tiêu dùng, cho phép ngân hàng cá nhân hóa các sản phẩm và chương trình khuyến mãi trong tương lai, từ đó củng cố lòng trung thành của khách hàng.",
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "1.2. Danh mục Thẻ Ngân hàng"
+    },
+    "embedding_dimension": 768
+  },
+  {
+    "type": "text",
+    "title": "1.3. Tiền gửi & Tiết kiệm",
+    "content": "BIDV cung cấp các sản phẩm tiền gửi tiết kiệm đa dạng, bao gồm hình thức tiết kiệm thông thường tại quầy và tiết kiệm online.8 Một điểm khác biệt quan trọng là lãi suất tiền gửi online thường cao hơn lãi suất tại quầy, với mức chênh lệch trung bình từ 0.1-0.3%/năm.19 Cụ thể, lãi suất cao nhất cho tiền gửi online kỳ hạn 24-36 tháng là 4,9%/năm, cao hơn mức 4,8%/năm tại quầy.25 Sự chênh lệch này là một công cụ chiến lược để khuyến khích khách hàng chuyển đổi hành vi sang kênh số, giúp BIDV tối ưu hóa chi phí vận hành (giảm chi phí nhân sự, mặt bằng) và nâng cao hiệu quả hoạt động.19 Ngoài ra, BIDV còn phát triển các sản phẩm tích lũy chuyên biệt như \"Tích lũy ước mơ\" (tiết kiệm du học) và \"Mua nhà An Phú Gia\" (tiết kiệm mua nhà), cho phép khách hàng linh hoạt gửi góp và hưởng lãi suất cạnh tranh.26 Hình thức tiết kiệm online còn mang lại nhiều lợi ích khác như sự tiện lợi (có thể thực hiện giao dịch mọi lúc, mọi nơi), tính bảo mật cao (không lo mất sổ tiết kiệm giấy), và khả năng rút tiền trước hạn một cách dễ dàng.19 Lãi suất chỉ mang tính tham khảo và có thể thay đổi tùy từng địa bàn và thời điểm.29",
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "1.3. Tiền gửi & Tiết kiệm"
+    },
+    "embedding_dimension": 768
+  },
+  {
+    "type": "text",
+    "title": "1.4. Tín dụng & Vay vốn",
+    "content": "BIDV cung cấp một loạt các sản phẩm vay vốn đa dạng cho cả khách hàng cá nhân và doanh nghiệp. Đối với cá nhân, các gói vay phổ biến bao gồm vay mua nhà, vay mua xe, vay du học, vay tiêu dùng có và không có tài sản bảo đảm.8 Đối với doanh nghiệp, ngân hàng tài trợ các khoản vay vốn lưu động, dự án và tín dụng thương mại.9 Điều kiện vay cơ bản bao gồm việc chứng minh thu nhập ổn định, có tài sản thế chấp hợp pháp (đối với các khoản vay lớn) và một lịch sử tín dụng \"sạch\".30 Các khoản vay tín chấp nhỏ được xét duyệt dựa trên năng lực tài chính và uy tín cá nhân, với quy trình nhanh chóng và thủ tục đơn giản.31 Các khoản vay tại BIDV có thể áp dụng lãi suất cố định hoặc thả nổi.33 Về các khoản phí, phí trả nợ trước hạn được quy định ở mức 0% - 0.03% nhân với số tiền và số tháng trả nợ trước hạn.34 Đối với nợ quá hạn, phí phạt không vượt quá 10%/năm tính trên số dư lãi trả chậm.35 Mặc dù BIDV là ngân hàng có dư nợ tín dụng lớn nhất thị trường, đạt trên 2,02 triệu tỷ đồng vào năm 2024, ngân hàng vẫn duy trì tỷ lệ nợ xấu ở mức thấp (1,27%).1 Điều này cho thấy sự cẩn trọng và hiệu quả trong công tác quản trị rủi ro tín dụng của BIDV. Việc cân bằng giữa tăng trưởng mạnh mẽ và kiểm soát chặt chẽ chất lượng tín dụng là minh chứng cho năng lực quản lý vượt trội, giúp ngân hàng duy trì sự an toàn và bền vững trong hoạt động kinh doanh.",
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "1.4. Tín dụng & Vay vốn"
+    },
+    "embedding_dimension": 768
+  },
+  {
+    "type": "text",
+    "title": "Chương II: Khách Hàng và Trải Nghiệm Dịch Vụ",
+    "content": "BIDV xây dựng một hệ thống chăm sóc khách hàng đa kênh và hoạt động 24/7 để đảm bảo hỗ trợ khách hàng mọi lúc, mọi nơi.36 Khách hàng có thể liên hệ thông qua các số tổng đài riêng biệt cho cá nhân (1900 9247) và doanh nghiệp (1900 9248), hoặc đến trực tiếp một trong hơn 1000 chi nhánh và phòng giao dịch trên toàn quốc.36 Hệ thống hotline được phân luồng thông minh, cho phép khách hàng chọn phím để giải quyết các vấn đề cụ thể như khiếu nại về thẻ, ngân hàng điện tử, hoặc báo mất thẻ.37 Đáng chú ý, BIDV đã số hóa quy trình tra soát khiếu nại, cho phép khách hàng tự thực hiện trên ứng dụng BIDV SmartBanking. Thay vì phải đến quầy, khách hàng có thể chủ động tra cứu lịch sử giao dịch và gửi yêu cầu khiếu nại ngay trên điện thoại.38 Quy trình này giúp giảm tải đáng kể cho hệ thống chi nhánh và tổng đài, đồng thời trao quyền cho khách hàng, giúp họ quản lý tài chính một cách chủ động và hiệu quả hơn. Đối với các vấn đề phức tạp hơn, ví dụ như giao dịch bị \"treo,\" BIDV cam kết xử lý sớm nhất khi hệ thống chuyển mạch Napas xác nhận quyết toán với các ngân hàng.39 BIDV cũng chủ động thực hiện các chiến dịch cảnh báo lừa đảo nhằm bảo vệ khách hàng. Ngân hàng thường xuyên khuyến cáo khách hàng về các thủ đoạn mạo danh cán bộ ngân hàng hoặc lừa đảo qua mã độc.40 Chính sách bảo mật thông tin của BIDV nhấn mạnh vai trò đồng trách nhiệm của cả ngân hàng và khách hàng. Ngân hàng cam kết không bao giờ yêu cầu khách hàng cung cấp các thông tin bảo mật như mật khẩu hay mã OTP, đồng thời khuyến cáo khách hàng không tiết lộ thông tin này và nên thoát khỏi hệ thống sau khi sử dụng để tránh rủi ro.41",
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "Chương II: Khách Hàng và Trải Nghiệm Dịch Vụ"
+    },
+    "embedding_dimension": 768
+  },
+  {
+    "type": "text",
+    "title": "Chương III: Quy Định & Tuân Thủ Pháp Lý",
+    "content": "BIDV đã thiết lập một khung quản trị rủi ro toàn diện, bao gồm rủi ro tín dụng, rủi ro thanh khoản, rủi ro thị trường, rủi ro hoạt động và rủi ro danh tiếng.43 Đặc biệt, ngân hàng đã chủ động triển khai các sáng kiến để đáp ứng các chuẩn mực quản lý rủi ro quốc tế như Basel II và đang trong lộ trình áp dụng Basel III.1 Việc này không chỉ là một yêu cầu tuân thủ mà còn là một chiến lược quan trọng để củng cố nền tảng tài chính của ngân hàng. Tính đến cuối năm 2024, BIDV đã đạt các tỷ lệ an toàn thanh khoản theo Basel III, với tỷ lệ LCR (Liquidity Coverage Ratio) và NSFR (Net Stable Funding Ratio) đều trên 100%, một minh chứng cho khả năng sẵn sàng của ngân hàng trước các cú sốc thanh khoản.1 Ngân hàng cũng thực hiện kiểm tra sức chịu đựng (stress test) định kỳ để đánh giá khả năng chống chịu của hệ thống trước các biến động bất lợi của thị trường.1 Về công tác phòng chống rửa tiền (AML), BIDV áp dụng các quy trình Biết khách hàng (KYC) chặt chẽ, coi đây là một trong những cơ chế cốt lõi để ngăn chặn các hoạt động tội phạm tài chính.45 Việc chuyển đổi từ KYC truyền thống sang eKYC không chỉ cải thiện trải nghiệm khách hàng mà còn nâng cao hiệu quả và an toàn trong quy trình xác minh danh tính.46",
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "Chương III: Quy Định & Tuân Thủ Pháp Lý"
+    },
+    "embedding_dimension": 768
+  },
+  {
+    "type": "text",
+    "title": "Chương IV: Công Nghệ & Chuyển Đổi Số",
+    "content": "Chuyển đổi số được BIDV xác định là một trong ba trụ cột chiến lược chính, với mục tiêu trở thành định chế tài chính hàng đầu khu vực có nền tảng số tốt nhất Việt Nam.3 BIDV đã đầu tư mạnh mẽ vào hệ thống ngân hàng cốt lõi (Core Banking System) từ rất sớm (năm 2003) và liên tục nâng cấp để ứng dụng các công nghệ quản lý hiện đại.4 Một điểm nhấn quan trọng trong quá trình này là việc BIDV đã hoàn thành chuyển đổi dữ liệu cho 18 triệu khách hàng và triển khai hệ thống Payment Hub theo chuẩn SWIFT ISO20022.5 Khoản đầu tư lớn vào cơ sở hạ tầng cốt lõi này cho phép ngân hàng xử lý giao dịch một cách tập trung, hiệu quả và an toàn, đồng thời tạo nền tảng vững chắc để phát triển các sản phẩm và dịch vụ số mới.4 Các giải pháp số hóa nổi bật của BIDV bao gồm: BIDV SmartBanking: Phiên bản thế hệ mới ra mắt vào tháng 3/2021, tích hợp nhiều tính năng hiện đại như mở thẻ phi vật lý và rút tiền mặt tại ATM bằng mã QR.2 BIDV iBank: Nền tảng ngân hàng số dành cho khách hàng doanh nghiệp, được trang bị trợ lý ảo AI Chatbot từ tháng 3/2024, cung cấp hỗ trợ 24/7 và giải đáp các thắc mắc về sản phẩm, dịch vụ một cách tức thời.47 eKYC: Công nghệ định danh điện tử qua ảnh và video, giúp đơn giản hóa quy trình mở tài khoản và thu hút khách hàng mới mà không cần đến quầy giao dịch.2 Bên cạnh những lợi ích, quá trình chuyển đổi số cũng đi kèm với rủi ro công nghệ. BIDV đã chủ động thông báo cho khách hàng về các sự cố bảo trì hệ thống hoặc gián đoạn dịch vụ, đồng thời cam kết xử lý các giao dịch bị treo một cách sớm nhất.39 Ngân hàng cũng liên tục cảnh báo về các hình thức lừa đảo qua mạng và mã độc, khuyến cáo khách hàng tuân thủ các nguyên tắc bảo mật để bảo vệ tài khoản.40",
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "Chương IV: Công Nghệ & Chuyển Đổi Số"
+    },
+    "embedding_dimension": 768
+  },
+  {
+    "type": "text",
+    "title": "5.1. Ngân hàng Bán lẻ & Dịch vụ Cá nhân",
+    "content": "Ngoài các sản phẩm cốt lõi, BIDV còn phát triển các dịch vụ chuyên biệt trong mảng ngân hàng bán lẻ. Ngân hàng cung cấp dịch vụ kiều hối qua Western Union với thủ tục đơn giản và nhanh chóng, tạo điều kiện thuận lợi cho khách hàng nhận tiền từ nước ngoài.49 Trong lĩnh vực tín dụng, BIDV cung cấp các gói vay tín chấp tiêu dùng nhỏ (ví dụ, 10 triệu đồng) với lãi suất cạnh tranh và quy trình duyệt vay nhanh chóng, chỉ dựa trên uy tín và năng lực tài chính cá nhân.31",
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "5.1. Ngân hàng Bán lẻ & Dịch vụ Cá nhân"
+    },
+    "embedding_dimension": 768
+  },
+  {
+    "type": "text",
+    "title": "5.2. Khách hàng Doanh nghiệp",
+    "content": "Đối với khách hàng doanh nghiệp, BIDV cung cấp các giải pháp quản lý dòng tiền (Cash Management) toàn diện. Các dịch vụ bao gồm thu hộ tiền mặt và chi tiền mặt lưu động tại địa điểm của khách hàng, cùng với dịch vụ thu giữ hộ tiền mặt qua đêm.51 Bên cạnh đó, dịch vụ trả lương qua ngân hàng (Payroll) không chỉ giúp doanh nghiệp tối ưu hóa quy trình mà còn là một kênh để BIDV mở rộng tệp khách hàng cá nhân là nhân viên của các doanh nghiệp đối tác.",
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "5.2. Khách hàng Doanh nghiệp"
+    },
+    "embedding_dimension": 768
+  },
+  {
+    "type": "text",
+    "title": "5.3. Ngân hàng Đầu tư & Thị trường vốn",
+    "content": "BIDV hoạt động trong lĩnh vực ngân hàng đầu tư thông qua công ty con BSC (Công ty Cổ phần Chứng khoán Ngân hàng Đầu tư và Phát triển Việt Nam).9 BSC cung cấp các dịch vụ chuyên sâu như tư vấn mua bán và sáp nhập (M&A), tư vấn cổ phần hóa và chào bán cổ phiếu ra công chúng (IPO), và các dịch vụ huy động vốn trên thị trường vốn (ECM).54 Một thành tựu nổi bật là thương vụ BIDV phát hành riêng lẻ 15% vốn cổ phần cho Hana Bank, được vinh danh là thương vụ M&A tiêu biểu Việt Nam năm 2019-2020. Đây là giao dịch M&A với nhà đầu tư chiến lược lớn nhất trong lịch sử ngành ngân hàng Việt Nam, giúp BIDV tăng cường năng lực tài chính và tiếp cận hỗ trợ kỹ thuật từ đối tác nước ngoài.56",
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "5.3. Ngân hàng Đầu tư & Thị trường vốn"
+    },
+    "embedding_dimension": 768
+  },
+  {
+    "type": "text",
+    "title": "5.4. Chiến lược Tài chính Xanh và ESG",
+    "content": "BIDV theo đuổi chiến lược định vị thương hiệu \"Ngân hàng Xanh,\" với mục tiêu trở thành ngân hàng dẫn đầu về thực hành ESG (Môi trường - Xã hội - Quản trị) và tài chính bền vững.6 Ngân hàng cam kết thực hiện lộ trình chuyển đổi thành \"Ngân hàng phát thải ròng bằng không\" (Net-Zero Bank).6 Điều này được cụ thể hóa bằng việc BIDV đã cấp tín dụng xanh cho gần 2000 dự án với dư nợ hơn 80,870 tỷ đồng, lớn nhất thị trường.1 Ngân hàng cũng triển khai các gói tín dụng ưu đãi cho các dự án sản xuất nước sạch, ngành dệt may và các công trình xanh.58 Bên cạnh đó, BIDV còn phát hành trái phiếu bền vững để thu hút nguồn vốn đầu tư cho các dự án phát triển bền vững.1",
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "5.4. Chiến lược Tài chính Xanh và ESG"
+    },
+    "embedding_dimension": 768
+  },
+  {
+    "type": "text",
+    "title": "6.1. Cạnh tranh và Hợp tác với Fintech",
+    "content": "Trong bối cảnh cạnh tranh khốc liệt từ các công ty Fintech, BIDV đã xác định Fintech không phải là đối thủ mà là đối tác chiến lược.59 Quan điểm này đã được thể hiện qua việc BIDV tích cực liên kết với một loạt các Fintech và BigTech hàng đầu để mở rộng hệ sinh thái dịch vụ số. BIDV đã hoàn thành kết nối thanh toán với các ví điện tử phổ biến như MoMo, ZaloPay, Moca (GrabPay) và các nền tảng công nghệ như Apple Pay.59 Bên cạnh đó, BIDV còn hợp tác với các công ty công nghệ như InfoPlus để phát triển các giải pháp ngân hàng tích hợp cho khách hàng doanh nghiệp.66 Mô hình hợp tác này giúp BIDV tiếp cận hàng triệu người dùng trên các nền tảng của đối tác mà không cần phải xây dựng các ứng dụng chuyên biệt từ đầu.59 Đây là một phương thức mở rộng thị phần hiệu quả về chi phí, đặc biệt trong việc tiếp cận các phân khúc khách hàng trẻ tuổi và nhóm khách hàng ít có điều kiện tiếp cận dịch vụ ngân hàng truyền thống.",
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "6.1. Cạnh tranh và Hợp tác với Fintech"
+    },
+    "embedding_dimension": 768
+  },
+  {
+    "type": "text",
+    "title": "6.2. Quản trị Khủng hoảng & Truyền thông",
+    "content": "BIDV đã thể hiện năng lực quản trị khủng hoảng truyền thông chuyên nghiệp trong một số sự kiện. Khi hệ thống gặp sự cố kỹ thuật hoặc bảo trì, ngân hàng chủ động thông báo trên website và cung cấp kênh hỗ trợ 24/7.48 Ngân hàng cũng có kinh nghiệm xử lý nhanh chóng các tin đồn thất thiệt, như tin đồn về Chủ tịch bị bắt hay một phòng giao dịch bị phá sản.69 Trong những trường hợp này, BIDV đã có phản ứng quyết liệt và kịp thời bằng cách ra thông cáo báo chí, phối hợp với các cơ quan chức năng để điều tra, khẳng định tin đồn là bịa đặt và cung cấp bằng chứng xác thực.69 Điều này cho thấy BIDV đã xây dựng một quy trình quản trị khủng hoảng bài bản để bảo vệ danh tiếng và duy trì niềm tin của khách hàng.",
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "6.2. Quản trị Khủng hoảng & Truyền thông"
+    },
+    "embedding_dimension": 768
+  },
+  {
+    "type": "text",
+    "title": "Kết Luận",
+    "content": "Phân tích toàn diện cho thấy BIDV không chỉ là một ngân hàng thương mại truyền thống mà còn là một định chế tài chính năng động, có tầm nhìn chiến lược dài hạn. BIDV đã thành công trong việc kết hợp sức mạnh của một ngân hàng có quy mô lớn với sự linh hoạt và đổi mới của kỷ nguyên số. Một mặt, BIDV tiếp tục củng cố vị thế dẫn đầu thông qua việc đầu tư vào hạ tầng cốt lõi như hệ thống Core Banking và chủ động tuân thủ các chuẩn mực quốc tế như Basel III.1 Những khoản đầu tư này không chỉ đảm bảo sự an toàn và hiệu quả mà còn nâng cao uy tín của ngân hàng trên trường quốc tế. Mặt khác, BIDV đã chứng minh sự nhạy bén bằng cách áp dụng các chiến lược tăng trưởng mới. Việc đẩy mạnh eKYC và các dịch vụ ngân hàng số giúp BIDV tối ưu hóa chi phí và cải thiện trải nghiệm khách hàng.2 Đồng thời, chiến lược phân khúc thị trường thông qua các sản phẩm thẻ tín dụng chuyên biệt và các gói tiết kiệm tích lũy đã giúp ngân hàng thu hút và giữ chân các nhóm khách hàng mục tiêu một cách hiệu quả.21 Cuối cùng, BIDV đã có một bước đi chiến lược vượt trội khi xác định Fintech là đối tác thay vì đối thủ, tạo ra một hệ sinh thái hợp tác rộng lớn để mở rộng phạm vi tiếp cận thị trường.59 BIDV đang định vị mình không chỉ là một ngân hàng hàng đầu về quy mô mà còn là một ngân hàng dẫn đầu về chuyển đổi số và phát triển bền vững, thể hiện rõ qua cam kết trở thành \"Ngân hàng Xanh\" và nỗ lực đi đầu trong lĩnh vực tài chính ESG.6 Sự kết hợp giữa nền tảng vững chắc, chiến lược số hóa toàn diện và cam kết phát triển bền vững tạo nên một vị thế cạnh tranh mạnh mẽ và triển vọng tăng trưởng dài hạn cho BIDV trên thị trường tài chính Việt Nam.",
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "Kết Luận"
+    },
+    "embedding_dimension": 768
+  },
+  {
+    "type": "text",
+    "title": "Nguồn trích dẫn",
+    "content": "Untitled - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/wps/wcm/connect/eb7a3711-c73a-4d38-9748-d1af44fe3342/Bao+cao+thuong+nien+BIDV+2024.FNL.pdf?MOD=AJPERES&CACHEID=ROOTWORKSPACE-eb7a3711-c73a-4d38-9748-d1af44fe3342-pt4s4YD Instant online account opening via BIDV SmartBanking, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv_en/ca-nhan/khuyen-mai/uu-dai-khac/dang-ky-tai-khoan-truc-tuyen-sieu-nhanh-tren-bidv-smartbanking Thay đổi để dẫn đầu - Đảng bộ Ngân hàng TMCP Đầu tư và Phát triển Việt Nam, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/dangbo/page.html?theme=chitiettintuc&id=876 Xây dựng Core Banking System - Ngân hàng Nhà nước, truy cập vào tháng 8 25, 2025, https://www.sbv.gov.vn/webcenter/portal/vi/menu/trangchu/ttsk/ttsk_chitiet?dDocName=CNTHWEBAP01162529979&p=26 TTBC số 24/2024: BIDV nhận giải thưởng “Ngân hàng triển khai công nghệ cho hệ thống Core Banking tốt nhất Việt Nam”, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/tin-tuc/thong-tin-bao-chi/bidv-nhan-giai-thuong-ngan-hang-trien-khai-cong-nghe-cho-he-thong-core-banking-tot-nhat-viet-nam BIDV Vinh dự lọt TOP 10 Ngân hàng thực thi ESG xuất sắc, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/tin-tuc/tin-ve-bidv/bidv-vinh-du-lot-top-10-ngan-hang-thuc-thi-esg-xuat-sac Chiến lược thúc đẩy tín dụng xanh và thực tiễn triển khai tại BIDV - Báo Lao Động, truy cập vào tháng 8 25, 2025, https://laodong.vn/kinh-doanh/chien-luoc-thuc-day-tin-dung-xanh-va-thuc-tien-trien-khai-tai-bidv-1496919.ldo Cá nhân - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/vn/ca-nhan Doanh nghiệp - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/vn/doanh-nghiep [TỔNG HỢP] Các loại thẻ tín dụng ngân hàng BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tin-dung/cac-loai-the-tin-dung-ngan-hang-bidv Tài khoản thanh toán - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/vn/ca-nhan/san-pham-dich-vu/tai-khoan/tai-khoan-thanh-toan Tài khoản chuyên dùng - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/vn/ca-nhan/san-pham-dich-vu/tai-khoan/tai-khoan-chuyen-dung Your account number of choice on BIDV SmartBanking, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv_en/ca-nhan/khuyen-mai/tien-gui/chon-so-tai-khoan-nhu-y-tren-+bidv-smartbanking-tu-0-dong Hướng dẫn đăng ký tài khoản online siêu nhanh tại nhà trên BIDV SmartBanking, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/ca-nhan/khuyen-mai/uu-dai-khac/dang-ky-tai-khoan-truc-tuyen-sieu-nhanh-tren-bidv-smartbanking Cách đăng ký ngân hàng trực tuyến BIDV dễ dàng, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/bao-mat/dang-ky-ngan-hang-truc-tuyen",
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "Nguồn trích dẫn"
+    },
+    "embedding_dimension": 768
+  },
+  {
+    "type": "text",
+    "title": "4 Lưu ý về tài khoản ngân hàng không duy trì số dư tại BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/bao-mat/tai-khoan-ngan-hang-0-dong",
+    "content": "BIỂU PHÍ DỊCH VỤ KHÁCH HÀNG CÁ NHÂN - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/wps/wcm/connect/54d22c8d-f721-411f-9b88-0a74b1b59e30/2.+DV+quan+ly+tai+khoan+%28ap+dung+tu+01.01.2023%29.pdf?MOD=AJPERES&CVID=opjZ1rj So sánh lãi suất gửi tiết kiệm online và tại quầy - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tien-gui/so-sanh-lai-suat-gui-tiet-kiem-online-va-tai-quay Thẻ - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/vn/ca-nhan/san-pham-dich-vu/dich-vu-the Tất tần tật những điều cần biết khi mở thẻ tín dụng BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tin-dung/mo-the-tin-dung-bidv Thẻ BIDV Visa Cashback Online, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/ca-nhan/san-pham-dich-vu/dich-vu-the/the-tin-dung-quoc-te/2/the-bidv-visa-cashback-online",
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "4 Lưu ý về tài khoản ngân hàng không duy trì số dư tại BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/bao-mat/tai-khoan-ngan-hang-0-dong"
+    },
+    "embedding_dimension": 768
+  },
+  {
+    "type": "text",
+    "title": "4 điều cần biết trước khi dùng thẻ tín dụng rút tiền mặt - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tin-dung/the-tin-dung-rut-tien-mat",
+    "content": "Thẻ BIDV Visa Flexi, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/ca-nhan/san-pham-dich-vu/dich-vu-the/the-tin-dung-quoc-te/the_ngung_phat_hanh/bidvvisaflexinew Lãi suất ngân hàng BIDV tháng 8/2025: Kỳ hạn 24 tháng có lãi suất cao nhất - CafeF, truy cập vào tháng 8 25, 2025, https://cafef.vn/lai-suat-ngan-hang-bidv-thang-8-2025-ky-han-24-thang-co-lai-suat-cao-nhat-188250810085051578.chn Tích lũy online | Giải pháp tài chính vững vàng cho tương lai - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tien-gui/gui-gop-online Gửi tiền tích lũy là gì? 4 Bí quyết gửi tích lũy hiệu quả - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tien-gui/gui-tien-tich-luy-an-toan 1. So sánh gửi tiết kiệm online và tại quầy - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tien-gui/nen-gui-tiet-kiem-online-hay-tai-quay Lãi suất - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/vn/ca-nhan/cong-cu-tien-ich/lai-suat Điều kiện và thủ tục vay ngân hàng mua nhà mới nhất - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tin-dung/dieu-kien-vay-ngan-hang-mua-nha Vay tín chấp 10 triệu nhanh chóng, lãi suất thấp tại BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tin-dung/vay-ngan-hang-10-trieu Vay ngân hàng không thế chấp | Lãi suất, thủ tục, điều kiện - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tin-dung/vay-ngan-hang-khong-the-chap BIDV triển khai gói vay vốn ưu đãi dành cho khách hàng cá nhân năm 2025, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/ca-nhan/khuyen-mai/san-pham-vay/bidv-trien-khai-goi-vay-von-uu-dai-danh-cho-khach-hang-ca-nhan-2025 Phí phạt trả nợ trước hạn.",
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "4 điều cần biết trước khi dùng thẻ tín dụng rút tiền mặt - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tin-dung/the-tin-dung-rut-tien-mat"
+    },
+    "embedding_dimension": 768
+  },
+  {
+    "type": "text",
+    "title": "4 điều cần biết trước khi dùng thẻ tín dụng rút tiền mặt - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tin-dung/the-tin-dung-rut-tien-mat",
+    "content": "Mức phạt của các ngân hàng 2025, truy cập vào tháng 8 25, 2025, https://www.bankexpress.vn/phi-tra-no-truoc-han-khi-vay-ngan-hang/ Tổng hợp từ A - Z về vay ngân hàng bằng sổ tiết kiệm - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tin-dung/vay-ngan-hang-bang-so-tiet-kiem BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/ Tổng đài BIDV | Hotline chăm sóc khách hàng ngân hàng BIDV 24/7 - Hoàng Hà Mobile, truy cập vào tháng 8 25, 2025, https://hoanghamobile.com/tin-tuc/bidv/ Tra soát khiếu nại - BIDV SmartBanking hướng dẫn sử dụng phiên bản Web, truy cập vào tháng 8 25, 2025, https://omni.bidv.com.vn/static/bidv/hdsdib/pages/vi/9-ho-tro/1-tra-soat-khieu-nai.html Hệ thống chuyển tiền 24/7 hoạt động bình thường - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/ca-nhan/thong-bao/ngan-hang-so/he-thong-chuyen-tien-247-hoat-dong-binh-thuong Cảnh báo nguy cơ bị lộ, chiếm đoạt thông tin đăng nhập dịch vụ Ngân hàng số/Ngân hàng điện tử - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/ca-nhan/thong-bao/thay-doi-mang-luoi/canh-bao-nguy-co-chiem-doat-thong-tin-dang-nhap-dich-vu-nhdt NGUYÊN TẮC BẢO MẬT - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/wps/wcm/connect/7992bc6c-6f76-4a1d-a7b6-ba7809b1b718/PL+02+Nguyen+tac+bao+mat.pdf?MOD=AJPERES&CACHEID=ROOTWORKSPACE-7992bc6c-6f76-4a1d-a7b6-ba7809b1b718-otZIYu6 An toàn & Bảo mật - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/vn/an-toan-bao-mat b á o cá o thường niên 2022 - Vietstock, truy cập vào tháng 8 25, 2025, https://static2.vietstock.vn/data/HOSE/2022/BCTN/VN/BID_Baocaothuongnien_2022.pdf BÁO CÁO THƯỜNG NIÊN - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/wps/wcm/connect/fb81dc4d-9fc4-4991-adad-f67999aebfc5/bidv1-BIDV_BCTN2017_A4_ViewFullFNL_20180504091300.pdf?MOD=AJPERES&CVID=mgiQfmG Giải thích về KYC và AML... Sự khác biệt là gì? iProov, truy cập vào tháng 8 25, 2025, https://www.iproov.com/vi/blog/kyc-aml-importance-difference/ eKYC là gì?",
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "4 điều cần biết trước khi dùng thẻ tín dụng rút tiền mặt - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tin-dung/the-tin-dung-rut-tien-mat"
+    },
+    "embedding_dimension": 768
+  },
+  {
+    "type": "text",
+    "title": "4 điều cần biết trước khi dùng thẻ tín dụng rút tiền mặt - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tin-dung/the-tin-dung-rut-tien-mat",
+    "content": "Sự khác biệt là gì? iProov, truy cập vào tháng 8 25, 2025, https://www.iproov.com/vi/blog/kyc-aml-importance-difference/ eKYC là gì? Vai trò và tầm quan trọng của eKYC với ngân hàng - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/bao-mat/ekyc-la-gi BIDV ra mắt Chatbot dành cho doanh nghiệp - Tạp chí Ngân hàng, truy cập vào tháng 8 25, 2025, https://tapchinganhang.gov.vn/bidv-ra-mat-chatbot-danh-cho-doanh-nghiep-1229.html thông báo bảo trì hệ thống - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/maintain/ Kiều hối trao tay - Trúng ngay 10 triệu - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/vn/ca-nhan/!ut/p/z0/04_Sj9CPykssy0xPLMnMz0vMAfIjo8ziLQwdjQydLYz8_YPcDAzMXA1MQo1DvE2DvM31C7IdFQG2rxIv/?urile=wcm:path:/wps/wcm/connect/BIDV/ca-nhan/khuyen-mai/chuyen-nhan-tien/kieu-hoi-trao-tay-trung-ngay-10-trieu Hướng dẫn chuyển nhận tiền quốc tế qua Western Union tại BIDV - YouTube, truy cập vào tháng 8 25, 2025, https://www.youtube.com/watch?v=5LBhxtfbg1A Cash Collection/payment at customer's location - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/en/ca-nhan/san-pham-dich-vu/ngan-quy/thu-chi-tien-mat-luu-dong Overnight cash storage - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/vn/ca-nhan/san-pham-dich-vu/ngan-quy/thu-giu-ho-tien-mat-qua-dem/!ut/p/z1/jZDBCkIhEEW_pS9wFBPfcrIiXSQm8l6zCVch1KtF9P0FtW1ydgPn3BmuIDEJmuuzneuj3eZ6ee9HMicrUUlnVbSHuAVTcvAYXDJei5EBcDUoQT2-BLQ7F2EP2W8gwaBsjBH0etnnw49B6PMZgPj4URB3IgVggU9FHJCT_gJcSf_evF9LKRM033DxAtbwn0U!/ Công ty Cổ phần Chứng khoán BIDV - HNX, truy cập vào tháng 8 25, 2025, https://www.hnx.vn/cophieu-etfs/chi-tiet-thanh-vien-002-uc.html Tư vấn mua bán sáp nhập (M&A) - BSC, truy cập vào tháng 8 25, 2025, https://www.bsc.com.vn/u-van-mua-ban-sap-nhap-ma/ Dịch vụ thị trường vốn (ECM) - BSC, truy cập vào tháng 8 25, 2025, https://www.bsc.com.vn/dich-vu-thi-truong-von-ecm/ Hana: Thương vụ đầu tư và M&A tiêu biểu Việt Nam năm 2019-2020 - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/tin-tuc/tin-ve-bidv/bidv-hana-thuong-vu-dau-tu-ma-tieu-bieu-viet-nam-2019-2020 Phát triển bền vững - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/vn/ve-bidv/phat-trien-ben-vung BIDV đẩy mạnh triển khai các gói tín dụng xanh - Báo Chính phủ, truy cập vào tháng 8 25, 2025, https://baochinhphu.vn/bidv-danh-goi-tin-dung-xanh-hon-19000-ty-dong-cho-dn-102241128154952093.htm BIDV: Tận dụng thế mạnh của công nghệ tài chính là ưu tiên hàng đầu, truy cập vào tháng 8 25, 2025, https://baochinhphu.vn/bidv-tan-dung-the-manh-cua-cong-nghe-tai-chinh-la-uu-tien-hang-dau-102246526.htm Xu hướng ngân hàng điện tử | Sự ra đời và phát triển - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/bao-mat/xu-huong-ngan-hang-dien-tu HƯỚNG DẪN SỬ DỤNG DỊCH VỤ LIÊN KẾT TÀI KHOẢN BIDV VÀ TÀI KHOÁN VÍ ĐIỆN TỬ MOMO I.",
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "4 điều cần biết trước khi dùng thẻ tín dụng rút tiền mặt - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tin-dung/the-tin-dung-rut-tien-mat"
+    },
+    "embedding_dimension": 768
+  },
+  {
+    "type": "text",
+    "title": "4 điều cần biết trước khi dùng thẻ tín dụng rút tiền mặt - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tin-dung/the-tin-dung-rut-tien-mat",
+    "content": "Điều kiện s K, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/wps/wcm/connect/40ff6d34-c8ff-4c79-9557-940f9d0b68ee/Huong+dan+lien+ket++va+nap+rut+Vi+MOMO.pdf?MOD=AJPERES&CVID=mtYDe0s Link BIDV account to ZaloPay and receive up to VND1 million, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv_en/ca-nhan/khuyen-mai/uu-dai-khac/lien-ket-bidv-voi-zalopay-nhan-ngay-uu-dai-1-trieu-dong Khách hàng BIDV nhận thêm ưu đãi lên đến 290.000đ khi liên kết Grabpay by Moca, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/ca-nhan/khuyen-mai/ngan-hang-so/bidv_grabmoca_290k STT Câu hỏi Trả lời 1 Sản phẩm thẻ nào của BIDV có thể sử dụng Apple Pay (thêm vào ứng dụng Apple W, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/wps/wcm/connect/415ccd71-fc6d-4086-b948-9b5818822f92/FAQ+Apple+Pay.pdf?MOD=AJPERES&CVID=p6ohjya Apple pay - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/vn/ca-nhan/san-pham-dich-vu/dich-vu-the/apple-pay BIDV và InfoPlus ký kết hợp tác phát triển sản phẩm ngân hàng trên nền tảng số - Công an, truy cập vào tháng 8 25, 2025, https://congan.com.vn/thi-truong/ngan-hang/bidv-va-infoplus-ky-ket-hop-tac-phat-trien-san-pham-ngan-hang-tren-nen-tang-so_147480.html Thông báo nâng cấp ứng dụng BIDV SmartBanking tháng 4/2024, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/ca-nhan/thong-bao/ngan-hang-so/thong-bao-nang-cap-ung-dung-bidv-smartbanking BIDV SMARTBANKING - Dịch vụ ngân hàng số thế hệ mới, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/smartbanking/faq/index.html Tin đồn \"Chủ tịch BIDV bị bắt\" nhằm trục lợi và phá hoại thị trường tài chính, ngân hàng, truy cập vào tháng 8 25, 2025, https://cand.com.vn/Kinh-te/Tin-don-Chu-tich-BIDV-bi-bat-nham-truc-loi-va-pha-hoai-thi-truong-tai-chinh-ngan-hang-i222449/ Số 26/2018: BIDV khẳng định: Tin đồn 'Phòng Giao dịch Hòn La phá sản' là bịa đặt, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/tin-tuc/thong-tin-bao-chi/thongtinbaochi-so26-2018",
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "4 điều cần biết trước khi dùng thẻ tín dụng rút tiền mặt - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tin-dung/the-tin-dung-rut-tien-mat"
+    },
+    "embedding_dimension": 768
+  },
+  {
+    "type": "table",
+    "title": "4 điều cần biết trước khi dùng thẻ tín dụng rút tiền mặt - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tin-dung/the-tin-dung-rut-tien-mat",
+    "columns": [
+      "Dòng Thẻ Tín Dụng Nổi Bật",
+      "Phí Thường Niên (Chính)",
+      "Ưu Đãi Chính",
+      "Phí Rút Tiền Mặt"
+    ],
+    "rows": [
+      [
+        "BIDV Visa Infinite",
+        "Không có thông tin cụ thể",
+        "Phòng chờ sân bay, golf, spa; Hoàn tiền tới 6%",
+        "4% số tiền rút, tối thiểu 50.000 VND 10"
+      ],
+      [
+        "BIDV Visa Flexi",
+        "Miễn phí vĩnh viễn (chi tiêu từ 50 triệu/năm) 21",
+        "Miễn lãi tới 45 ngày; Trả góp 0% 21",
+        "3% số tiền GD, tối thiểu 50.000 VND 24"
+      ],
+      [
+        "BIDV Visa Cashback Online",
+        "1.000.000 VND (miễn phí năm tiếp theo nếu GD từ 150 triệu/năm) 22",
+        "Hoàn tiền tới 6% (Tiki, Shopee, Lazada); Phí chuyển đổi ngoại tệ 1% 21",
+        "3% số tiền GD, tối thiểu 50.000 VND 23"
+      ],
+      [
+        "BIDV Visa Cashback 360",
+        "Không có thông tin cụ thể",
+        "Hoàn tiền tới 10% (siêu thị, y tế, giáo dục) 21",
+        "4% số tiền rút, tối thiểu 50.000 VND 10"
+      ],
+      [
+        "BIDV Mastercard Inspire",
+        "Không có thông tin cụ thể",
+        "Tích điểm thưởng tối đa 4.000.000 VND/tháng 21",
+        "3% số tiền GD, tối thiểu 50.000 VND 23"
+      ]
+    ],
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "4 điều cần biết trước khi dùng thẻ tín dụng rút tiền mặt - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tin-dung/the-tin-dung-rut-tien-mat"
+    },
+    "embedding_dimension": 768
+  },
+  {
+    "type": "table",
+    "title": "4 điều cần biết trước khi dùng thẻ tín dụng rút tiền mặt - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tin-dung/the-tin-dung-rut-tien-mat",
+    "columns": [
+      "Kỳ Hạn",
+      "Lãi Suất Tiền Gửi Tại Quầy (%/năm)",
+      "Lãi Suất Tiền Gửi Online (%/năm)"
+    ],
+    "rows": [
+      [
+        "Không kỳ hạn",
+        "0.1% 25",
+        "0.1% 29"
+      ],
+      [
+        "1-2 tháng",
+        "1.6% 25",
+        "2.0% 25"
+      ],
+      [
+        "3-5 tháng",
+        "1.9% 25",
+        "2.3% 25"
+      ],
+      [
+        "6-11 tháng",
+        "3.0% 25",
+        "3.3% 25"
+      ],
+      [
+        "12-18 tháng",
+        "4.7% 25",
+        "4.7% 25"
+      ],
+      [
+        "24-36 tháng",
+        "4.8% 25",
+        "4.9% 25"
+      ]
+    ],
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "4 điều cần biết trước khi dùng thẻ tín dụng rút tiền mặt - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tin-dung/the-tin-dung-rut-tien-mat"
+    },
+    "embedding_dimension": 768
+  },
+  {
+    "type": "table",
+    "title": "4 điều cần biết trước khi dùng thẻ tín dụng rút tiền mặt - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tin-dung/the-tin-dung-rut-tien-mat",
+    "columns": [
+      "Cam Kết Tài Chính Xanh của BIDV (Năm 2024)",
+      "Dữ Liệu Thống Kê"
+    ],
+    "rows": [
+      [
+        "Tổng dư nợ tín dụng xanh",
+        "Hơn 80.870 tỷ VND, chiếm 12% thị phần toàn ngành ngân hàng 1"
+      ],
+      [
+        "Số lượng dự án/khách hàng",
+        "2.132 dự án/phương án được cấp tín dụng xanh cho 1.764 khách hàng 57"
+      ],
+      [
+        "Giá trị trái phiếu bền vững",
+        "3.000 tỷ VND được huy động 1"
+      ],
+      [
+        "Gói tín dụng ưu đãi",
+        "Hơn 19.000 tỷ VND cho doanh nghiệp; 5.000 tỷ VND cho dự án nước sạch; 3.000 tỷ VND và 50 triệu USD cho doanh nghiệp dệt may; 10.000 tỷ VND cho công trình xanh 58"
+      ]
+    ],
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "4 điều cần biết trước khi dùng thẻ tín dụng rút tiền mặt - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tin-dung/the-tin-dung-rut-tien-mat"
+    },
+    "embedding_dimension": 768
+  },
+  {
+    "type": "table",
+    "title": "4 điều cần biết trước khi dùng thẻ tín dụng rút tiền mặt - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tin-dung/the-tin-dung-rut-tien-mat",
+    "columns": [
+      "Đối Tác Fintech/BigTech",
+      "Hình Thức Hợp Tác"
+    ],
+    "rows": [
+      [
+        "Apple Pay",
+        "Tích hợp thanh toán NFC trên các thiết bị Apple, áp dụng cho thẻ BIDV Visa 64"
+      ],
+      [
+        "MoMo, ZaloPay, GrabPay",
+        "Tích hợp liên kết tài khoản/thẻ để nạp tiền và thanh toán 61"
+      ],
+      [
+        "InfoPlus",
+        "Hợp tác phát triển sản phẩm ngân hàng trên nền tảng số InfoCMS cho khách hàng doanh nghiệp 66"
+      ]
+    ],
+    "metadata": {
+      "file_path": "D:\\rag-project\\data\\raw\\documents\\BIDV.docx",
+      "file_type": "docx",
+      "paragraphs_count": 125,
+      "tables_count": 4,
+      "title": "4 điều cần biết trước khi dùng thẻ tín dụng rút tiền mặt - BIDV, truy cập vào tháng 8 25, 2025, https://bidv.com.vn/bidv/bidv-blog/tin-dung/the-tin-dung-rut-tien-mat"
+    },
+    "embedding_dimension": 768
+  }
+]

@@ -68,7 +68,7 @@ def main():
     vs = VectorStore(cfg)
 
     # Optional reset: tạo index mới, xoá file cũ
-    index_path = cfg.get("vector_store.index_path", "data/processed/embeddings/faiss_index")
+    index_path = cfg.get("vector_store.index_path", "D:\\rag-project\\data\\processed\\embeddings\\faiss_index")
     if args.reset:
         vs._initialize_index()
         vs.chunks = []

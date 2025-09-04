@@ -92,7 +92,7 @@ class RAGSystem:
         response = self.response_generator.generate_response(question, contents)
 
         return {
-            "question": question,
+            "retrieval_score": contexts[0]["retrieval_score"] if contexts else 0,
             "response": response["response"],
             "contexts": contents  # thêm dòng này để debug context
         }

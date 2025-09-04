@@ -33,17 +33,17 @@ class Config:
                 'overlap': 50
             },
             'retrieval': {
-                'top_k': 3,
-                'score_threshold': 0.4
+                'top_k': 2,
+                'score_threshold': 0.5
             },
             'vector_store': {
                 'type': 'faiss',
-                'index_path': 'data/processed/embeddings/faiss_index',
+                'index_path': 'D:\\rag-project\\data\\processed\\embeddings\\faiss_index',
                 'dimension': 768
             },
             'generation': {
-                'max_new_tokens': 512,
-                'temperature': 0.7,
+                'max_tokens': 1201,
+                'temperature': 0.4,
                 'do_sample': True
             }
         }

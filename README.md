@@ -59,9 +59,9 @@ Before setting up the project, ensure you have the following installed:
 - **Local Testing**: Run the chatbot locally and interact via a command-line interface or a web-based UI (e.g., `http://localhost:5000`).
 - **Integration**: Connect the chatbot to BIDV’s customer-facing platforms (e.g., website, mobile app) using provided APIs.
 - **Example Commands**:
-  - "Check my account balance"
-  - "How do I apply for a loan?"
-  - "What are BIDV’s branch hours?"
+  - "Thời gian làm việc tại ngân hàng là khi nào?"
+  - "Lãi suất vay mua nhà tại BIDV là bao nhiêu?"
+  - "Phí rút tiền mặt tại ATM là bao nhiêu?"
 
 ## Project Structure
 ```
@@ -93,8 +93,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 For inquiries or support, contact the project maintainer at:
-<<<<<<< HEAD
 - Email: bach242503@gmail.com
-=======
-- Email: bach242503@gmail.com
->>>>>>> origin/main
+
